@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpressMarket.MainPage">
+
+    <VerticalStackLayout Spacing="25" 
+                         Padding="30,0" 
+                         VerticalOptions="Center">
+        <Label Text="Welcome!" TextColor="DarkGreen" FontSize="50" HorizontalTextAlignment="Center" FontFamily="OpenSans-Semibold"/>
+        <Label Text="Discover the best products" TextColor="Green" FontSize="29" HorizontalTextAlignment="Center" FontFamily="OpenSans-Semibold"/>
+        <Image Source="logo.png" />
+        <Button Text="LogIn" WidthRequest="200" CornerRadius="20" Command="{Binding GoToLoginPageCommand}"/>
+    </VerticalStackLayout>
+
+</ContentPage>
