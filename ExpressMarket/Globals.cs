@@ -5,4 +5,4 @@ global using ExpressMarket.View.StartUp;
 global using ExpressMarket.View;
 //global using System.Collections.ObjectModel;
 global using ExpressMarket.Model;
-//global using ExpressMarket.Services;
+global using ExpressMarket.Services;

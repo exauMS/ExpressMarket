@@ -11,7 +11,9 @@ namespace ExpressMarket.Model
     {
         [PrimaryKey, AutoIncrement] 
         public int Id { get; set; }
+        [MaxLength(50), Unique]
         public string UserName { get; set; }
+        [Unique]
         public string Email { get; set; }
         public string Password { get; set; }
 
