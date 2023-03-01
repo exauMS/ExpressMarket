@@ -10,6 +10,7 @@ namespace ExpressMarket.Services
     internal class UserService
     {
         private static SQLiteAsyncConnection db;
+        
         private static async Task Init()
         {
             if (db != null)
