@@ -24,4 +24,10 @@ public partial class RegisterViewModel : ObservableObject
         //login page redirection
         await Shell.Current.GoToAsync(nameof(LoginPage));
     }
+
+    [RelayCommand]
+    async Task GoToLoginPage()
+    {
+        await Shell.Current.GoToAsync(nameof(LoginPage));
+    }
 }
