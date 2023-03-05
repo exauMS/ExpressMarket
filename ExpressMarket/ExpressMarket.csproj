@@ -49,10 +49,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\apple.png" />
+	  <None Remove="Resources\Images\banana.png" />
+	  <None Remove="Resources\Images\butter.png" />
+	  <None Remove="Resources\Images\carrot.png" />
+	  <None Remove="Resources\Images\cheese.png" />
+	  <None Remove="Resources\Images\cucumber.png" />
+	  <None Remove="Resources\Images\edit_pen.png" />
 	  <None Remove="Resources\Images\email_icon.png" />
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\peach.png" />
 	  <None Remove="Resources\Images\pwd_icon.png" />
+	  <None Remove="Resources\Images\refresh.png" />
+	  <None Remove="Resources\Images\salad.png" />
 	  <None Remove="Resources\Images\user_icon.png" />
+	  <None Remove="Resources\Images\yogurt.png" />
+	  <None Remove="Resources\Raw\DATA.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,15 +73,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\DATA.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </MauiAsset>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="View\DashBoard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\StartUp\LoginPage.xaml">
+	  <MauiXaml Update="View\DetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\StartUp\RegisterPage.xaml">
+	  <MauiXaml Update="View\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="View\StartUp\" />
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

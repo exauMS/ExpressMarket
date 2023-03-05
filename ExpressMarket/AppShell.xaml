@@ -4,11 +4,18 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ExpressMarket"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:ExpressMarket.View">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    
+    <TabBar>
+        <Tab Title="DashBoard"
+            Icon="logo.png">
+            <ShellContent ContentTemplate="{DataTemplate views:DashBoard}" />
+        </Tab>
+        <Tab Title="Profil"
+            Icon="user_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

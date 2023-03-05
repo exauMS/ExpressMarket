@@ -7,4 +7,6 @@ public partial class DashBoard : ContentPage
 		InitializeComponent();
 		BindingContext=viewModel;
 	}
+
+   
 }
