@@ -85,9 +85,9 @@
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
-            </CarouselView>
+            </CarouselView> 
 
-            <!--Dairies-->
+            <!--Dairies.-->
             <Frame Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Dairies" FontSize="30"/>
             </Frame>
