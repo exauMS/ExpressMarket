@@ -1,7 +1,7 @@
-using Android.Widget;
+
 using Microsoft.Maui.Controls.PlatformConfiguration;
 
-namespace ExpressMarket.View.StartUp;
+namespace ExpressMarket.View;
 
 public partial class RegisterViewModel : ObservableObject
 {
@@ -16,9 +16,9 @@ public partial class RegisterViewModel : ObservableObject
     async Task AddUser()
     {
         User user = new User();
-        user.UserName = UserName;
-        user.Email = Email;
-        user.Password = Password;
+        user.UserName = userName;
+        user.Email = email;
+        user.Password = password;
         await UserService.AddUserAsync(user);
 
         //login page redirection

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:ExpressMarket.Model"
+             xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
+             x:DataType="viewmodel:DetailsViewModel"
+             x:Class="ExpressMarket.View.DetailsPage"
+             Title="DetailsPage">
+
+    <StackLayout>
+        <Grid RowDefinitions="60,150,60,150,60,150" ColumnDefinitions="*">
+            <!--Fruits-->
+            <Frame Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+                <Label Text="Fruits" FontSize="30"/>
+            </Frame>
+
+            <CollectionView ItemsSource="{Binding Fruits}" Grid.Row="1" x:Name="Fruits">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type model:Article}">
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                           BorderColor="DarkGray"
+                           CornerRadius="5"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand">
+                                <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*,.10*">
+
+                                    <StackLayout Grid.Column="0">
+                                        <Image Source="{Binding ImageUrl}"
+                                       HeightRequest="40"
+                                       WidthRequest="40"/>
+                                        <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontSize="15"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                                    </StackLayout>
+                                    
+                                   
+                                    <StackLayout Grid.Column="1">
+                                        
+                                        <Label Text="{Binding Code}"
+                                       HorizontalOptions="Center" />
+                                        <Label Text="{Binding Creator}"
+                                       FontAttributes="Italic"
+                                       HorizontalOptions="Center"
+                                       MaxLines="5"
+                                       LineBreakMode="TailTruncation" />
+
+                                    </StackLayout>
+                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToLoginPageCommand}"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--Vegetables-->
+            <Frame Grid.Row="2" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+                <Label Text="Vegetables" FontSize="30"/>
+            </Frame>
+
+            <CollectionView ItemsSource="{Binding Vegetables}" Grid.Row="3" x:Name="Vegetables">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Article">
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                           BorderColor="DarkGray"
+                           CornerRadius="5"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand">
+                                <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
+
+                                    <StackLayout Grid.Column="0">
+                                        <Image Source="{Binding ImageUrl}"
+                                       HeightRequest="40"
+                                       WidthRequest="40"/>
+                                        <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontSize="15"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                                    </StackLayout>
+
+
+                                    <StackLayout Grid.Column="1">
+
+                                        <Label Text="{Binding Code}"
+                                       HorizontalOptions="Center" />
+                                        <Label Text="{Binding Creator}"
+                                       FontAttributes="Italic"
+                                       HorizontalOptions="Center"
+                                       MaxLines="5"
+                                       LineBreakMode="TailTruncation" />
+
+                                    </StackLayout>
+                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Vegetables}, Path=BindingContext.GoToLoginPageCommand}"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--Dairies-->
+            <Frame Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+                <Label Text="Dairies" FontSize="30"/>
+            </Frame>
+
+            <CollectionView ItemsSource="{Binding Dairies}" Grid.Row="5" x:Name="Dairies">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type model:Article}">
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                           BorderColor="DarkGray"
+                           CornerRadius="5"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand">
+                                <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
+
+                                    <StackLayout Grid.Column="0">
+                                        <Image Source="{Binding ImageUrl}"
+                                       HeightRequest="40"
+                                       WidthRequest="40"/>
+                                        <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontSize="15"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                                    </StackLayout>
+
+
+                                    <StackLayout Grid.Column="1">
+
+                                        <Label Text="{Binding Code}"
+                                       HorizontalOptions="Center" />
+                                        <Label Text="{Binding Creator}"
+                                       FontAttributes="Italic"
+                                       HorizontalOptions="Center"
+                                       MaxLines="5"
+                                       LineBreakMode="TailTruncation" />
+
+                                    </StackLayout>
+                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Dairies}, Path=BindingContext.GoToLoginPageCommand}"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

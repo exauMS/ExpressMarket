@@ -1,0 +1,9 @@
+[{"Id":1,"Name":"Banana","ImageUrl":"banana.png","Code":"GHJTHH4556","Creator":"Annmarie","Type":"Fruit"},
+{"Id":2,"Name":"Apple","ImageUrl":"apple.png","Code":"JDDJJDK78","Creator":"Melesa","Type":"Fruit"},
+{"Id":3,"Name":"Peach","ImageUrl":"peach.png","Code":"AOOEI451","Creator":"Roi","Type":"Fruit"},
+{"Id":4,"Name":"Salad","ImageUrl":"salad.png","Code":"JDKKDPL963","Creator":"Almeta","Type":"Vegetable"},
+{"Id":5,"Name":"Cucumber","ImageUrl":"cucumber.png","Code":"DJJDPA4756","Creator":"Shandra","Type":"Vegetable"},
+{"Id":6,"Name":"Carrot","ImageUrl":"carrot.png","Code":"AZER4563","Creator":"Exau","Type":"Vegetable"},
+{"Id":7,"Name":"Cheese","ImageUrl":"cheese.png","Code":"OPLLS4587","Creator":"Aymen","Type":"Dairy"},
+{"Id":8,"Name":"Yogurt","ImageUrl":"yogurt.png","Code":"JJDKK4523","Creator":"Natalina","Type":"Dairy"},
+{"Id":9,"Name":"Butter","ImageUrl":"butter.png","Code":"SSHJS477","Creator":"Stan","Type":"Dairy"}]

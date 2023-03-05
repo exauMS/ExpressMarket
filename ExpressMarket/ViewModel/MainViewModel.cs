@@ -12,10 +12,4 @@ public partial class MainViewModel : ObservableObject
     {
         await Shell.Current.GoToAsync(nameof(LoginPage));
     }
-
-    [RelayCommand]
-    async Task GoToRegisterPage()
-    {
-        await Shell.Current.GoToAsync(nameof(RegisterPage));
-    }
 }
