@@ -17,14 +17,16 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<RegisterPage>();
-		builder.Services.AddTransient<DashBoard>();
+		builder.Services.AddSingleton<DashBoard>();
         builder.Services.AddTransient<DetailsPage>();
+        builder.Services.AddTransient<DetailsFormPage>();
         //ViewModels
         builder.Services.AddSingleton<MainViewModel>();
         builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddTransient<RegisterViewModel>();
 		builder.Services.AddTransient<DashBoardViewModel>();
         builder.Services.AddTransient<DetailsViewModel>();
+        builder.Services.AddTransient<DetailsFormViewModel>();
         //Services
         builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<ArticleService>();
