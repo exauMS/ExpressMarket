@@ -22,7 +22,7 @@
                 <Image Source="code.png" HeightRequest="30" WidthRequest="30" />
             </Frame>
             <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Code" Text="{Binding Data.Code}"/>
+                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Code" Text="{Binding Data.Code}" IsReadOnly="True" BackgroundColor="LightGray"/>
             </Frame>
         </StackLayout>
 
