@@ -8,11 +8,12 @@ public partial class DashBoardViewModel : ContentPage
     public ObservableCollection<Article> Vegetables { get; set; } = new ObservableCollection<Article>();
     public ObservableCollection<Article> Dairies { get; set; } = new ObservableCollection<Article>();
     ArticleService articleService;
+    bool jsonTreated=false;
 
 
     public DashBoardViewModel()
     {
-
+       
     }
     public DashBoardViewModel(ArticleService service)
     {
@@ -30,15 +31,29 @@ public partial class DashBoardViewModel : ContentPage
     [RelayCommand]
     async Task GetJson()
     {
-        try
+        if (jsonTreated == false)
         {
-            GlobalsTools.articles = await articleService.GetArticles();
-        }
-        catch (Exception ex)
-        {
-            await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+            try
+            {
+                GlobalsTools.articles = await articleService.GetArticles();
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
 
+            }
+           
+            jsonTreated = true;
         }
+
+        RefreshList();
+    }
+
+    void RefreshList()
+    {
+        Fruits.Clear();
+        Vegetables.Clear();
+        Dairies.Clear();
         foreach (var item in GlobalsTools.articles)
         {
             if (item.Type.Equals("Fruit"))

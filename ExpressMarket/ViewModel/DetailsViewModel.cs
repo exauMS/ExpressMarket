@@ -20,9 +20,14 @@ public partial class DetailsViewModel : ContentPage
         }
     }
 
+
     [RelayCommand]
-    async Task GoToLoginPage()
+    async Task GoToDetailsFormPage(Article data)
     {
-        await Shell.Current.GoToAsync(nameof(LoginPage));
+        await Shell.Current.GoToAsync(nameof(DetailsFormPage), true, new Dictionary<string, object>
+        {
+            {"ArticleFromDetails", data }
+
+        });
     }
 }
