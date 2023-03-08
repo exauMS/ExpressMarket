@@ -8,8 +8,14 @@ public partial class MainViewModel : ObservableObject
 	}
 
     [RelayCommand]
-    async Task GoToLoginPage()
+    async Task GoToDashBoardPage()
     {
-        await Shell.Current.GoToAsync(nameof(LoginPage));
+        if(DeviceInfo.Platform == DevicePlatform.Android)
+            await Shell.Current.GoToAsync(nameof(DashBoard));
+        else if(DeviceInfo.Platform == DevicePlatform.WinUI)
+            await Shell.Current.GoToAsync(nameof(DashBoardWindowsPage));
+        else
+            await Shell.Current.GoToAsync(nameof(DashBoardWindowsPage));
+
     }
 }

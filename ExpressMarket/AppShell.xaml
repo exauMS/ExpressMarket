@@ -8,13 +8,13 @@
 
     
     <TabBar>
-        <Tab Title="DashBoard"
+        <Tab Title="Home"
             Icon="logo.png">
-            <ShellContent ContentTemplate="{DataTemplate views:DashBoard}" />
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
         <Tab Title="Profil"
             Icon="user_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
         </Tab>
     </TabBar>
 
