@@ -32,10 +32,8 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -58,6 +56,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\logo.png" />
 	  <None Remove="Resources\Images\apple.png" />
 	  <None Remove="Resources\Images\banana.png" />
 	  <None Remove="Resources\Images\butter.png" />
@@ -76,7 +75,18 @@
 	  <None Remove="Resources\Images\user_icon.png" />
 	  <None Remove="Resources\Images\yogurt.png" />
 	  <None Remove="Resources\Raw\DATA.json" />
+	  <None Remove="Resources\Splash\logo.png" />
 	</ItemGroup>
+
+  <!-- App Icon -->
+  <ItemGroup>
+    <MauiIcon Include="Resources\AppIcon\logo.png" ForegroundFile="Resources\AppIcon\logo.png" Color="#ffffff"/>
+  </ItemGroup>
+
+  <!-- Splash Screen -->
+  <ItemGroup>
+    <MauiSplashScreen Include="Resources\Splash\logo.png" ForegroundFile="Resources\AppIcon\logo.png" Color="#ffffff"/>
+  </ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />

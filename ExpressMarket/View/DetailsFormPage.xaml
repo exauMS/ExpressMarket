@@ -18,10 +18,10 @@
         </VerticalStackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+            <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28" BackgroundColor="LightGray">
                 <Image Source="code.png" HeightRequest="30" WidthRequest="30" />
             </Frame>
-            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
                 <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Code" Text="{Binding Data.Code}" IsReadOnly="True" BackgroundColor="LightGray"/>
             </Frame>
         </StackLayout>
