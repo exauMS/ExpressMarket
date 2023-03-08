@@ -20,6 +20,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<DashBoard>();
         builder.Services.AddTransient<DetailsPage>();
         builder.Services.AddTransient<DetailsFormPage>();
+        builder.Services.AddTransient<DashBoardWindowsPage>();
         //ViewModels
         builder.Services.AddSingleton<MainViewModel>();
         builder.Services.AddTransient<LoginViewModel>();

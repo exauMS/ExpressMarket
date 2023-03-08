@@ -80,12 +80,12 @@
 
   <!-- App Icon -->
   <ItemGroup>
-    <MauiIcon Include="Resources\AppIcon\logo.png" ForegroundFile="Resources\AppIcon\logo.png" Color="#ffffff"/>
+    <MauiIcon Include="Resources\AppIcon\logo.png" ForegroundFile="Resources\AppIcon\logo.png" Color="#ffffff" />
   </ItemGroup>
 
   <!-- Splash Screen -->
   <ItemGroup>
-    <MauiSplashScreen Include="Resources\Splash\logo.png" ForegroundFile="Resources\AppIcon\logo.png" Color="#ffffff"/>
+    <MauiSplashScreen Include="Resources\Splash\logo.png" ForegroundFile="Resources\AppIcon\logo.png" Color="#ffffff" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -101,6 +101,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="View\DashBoard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\DashBoardWindowsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\DetailsFormPage.xaml">

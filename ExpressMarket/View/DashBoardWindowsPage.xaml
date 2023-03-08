@@ -3,11 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:ExpressMarket.Model"
              xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
-             x:Class="ExpressMarket.View.DashBoard"
+             x:Class="ExpressMarket.View.DashBoardWindowsPage"
+             Title="DashBoardWindowsPage"
              x:DataType="viewmodel:DashBoardViewModel">
-
-
-
     <StackLayout>
 
         <HorizontalStackLayout>
@@ -23,12 +21,12 @@
             <Frame Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Fruits" FontSize="30"/>
             </Frame>
-            
-            
-            <CarouselView ItemsSource="{Binding Fruits}" Grid.Row="1" PeekAreaInsets="100">
-                <CarouselView.ItemTemplate>
+
+           
+                <CollectionView ItemsSource="{Binding Fruits}" Grid.Row="1" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
-                        <StackLayout>
+                            <StackLayout>
                             <Frame HasShadow="True"
                            BorderColor="DarkGray"
                            CornerRadius="5"
@@ -36,7 +34,7 @@
                            HeightRequest="150"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand">
-                                <StackLayout>
+                                <StackLayout BackgroundColor="Transparent">
                                     <Label Text="{Binding Name}"
                                    FontAttributes="Bold"
                                    FontSize="18"
@@ -49,17 +47,18 @@
                                    HorizontalOptions="Center"/>
                                 </StackLayout>
                             </Frame>
-                        </StackLayout>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
+                            </StackLayout>
+                        </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+          
             <!--Vegetables-->
             <Frame Grid.Row="2" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Vegetables" FontSize="30"/>
             </Frame>
 
-            <CarouselView ItemsSource="{Binding Vegetables}" Grid.Row="3" PeekAreaInsets="100">
-                <CarouselView.ItemTemplate>
+            <CollectionView ItemsSource="{Binding Vegetables}" Grid.Row="3" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
                             <Frame HasShadow="True"
@@ -80,21 +79,21 @@
                                    HeightRequest="80"
                                    WidthRequest="80"
                                    HorizontalOptions="Center" />
-                                   
+
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
                     </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView> 
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <!--Dairies.-->
             <Frame Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Dairies" FontSize="30"/>
             </Frame>
 
-            <CarouselView ItemsSource="{Binding Dairies}" Grid.Row="5" PeekAreaInsets="100">
-                <CarouselView.ItemTemplate>
+            <CollectionView ItemsSource="{Binding Dairies}" Grid.Row="5" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
                         <StackLayout>
                             <Frame HasShadow="True"
@@ -115,20 +114,15 @@
                                    HeightRequest="80"
                                    WidthRequest="80"
                                    HorizontalOptions="Center" />
-                                   
+
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
                     </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
 
         <ImageButton Source="refresh.png" WidthRequest="40" HeightRequest="40" Command="{Binding GetJsonCommand}" Grid.Row="10"/>
     </StackLayout>
-   
-
-
-
-
 </ContentPage>
