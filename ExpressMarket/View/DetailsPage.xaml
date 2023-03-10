@@ -21,8 +21,9 @@
                             <Frame HasShadow="True"
                            BorderColor="DarkGray"
                            CornerRadius="5"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                                   WidthRequest="400">
                                 <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*,.10*">
 
                                     <StackLayout Grid.Column="0">
@@ -68,7 +69,8 @@
                            BorderColor="DarkGray"
                            CornerRadius="5"
                            HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                           VerticalOptions="CenterAndExpand"
+                                   WidthRequest="400">
                                 <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
 
                                     <StackLayout Grid.Column="0">
@@ -115,7 +117,8 @@
                            BorderColor="DarkGray"
                            CornerRadius="5"
                            HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                           VerticalOptions="CenterAndExpand"
+                                   WidthRequest="400">
                                 <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
 
                                     <StackLayout Grid.Column="0">

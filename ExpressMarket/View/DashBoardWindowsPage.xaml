@@ -8,28 +8,23 @@
              x:DataType="viewmodel:DashBoardViewModel">
     <StackLayout>
 
-        <HorizontalStackLayout>
-            <Frame WidthRequest="195" HeightRequest="60" Padding="5" BackgroundColor="LightBlue">
-                <Button Text="Scan"/>
-            </Frame>
-            <Frame WidthRequest="195" HeightRequest="60" Padding="5" BackgroundColor="LightBlue">
-                <Button Text="Details" Command="{Binding GoToDetailsPageCommand}"/>
-            </Frame>
+        <HorizontalStackLayout HeightRequest="40">
+            <ImageButton Source="scanner.png" WidthRequest="130" HeightRequest="40" Command="{Binding GetJsonCommand}"/>
+            <ImageButton Source="refresh.png" WidthRequest="130" HeightRequest="40" Command="{Binding GetJsonCommand}"/>
+            <ImageButton Source="details.png" WidthRequest="130" HeightRequest="40" Command="{Binding GoToDetailsPageCommand}"/>
         </HorizontalStackLayout>
         <Grid RowDefinitions="60,150,60,150,60,150" ColumnDefinitions="*">
             <!--Fruits-->
-            <Frame Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+            <Border Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Fruits" FontSize="30"/>
-            </Frame>
+            </Border>
 
            
                 <CollectionView ItemsSource="{Binding Fruits}" Grid.Row="1" ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                             <StackLayout>
-                            <Frame HasShadow="True"
-                           BorderColor="DarkGray"
-                           CornerRadius="5"
+                            <Border 
                            Margin="20"
                            HeightRequest="150"
                            HorizontalOptions="Center"
@@ -46,24 +41,22 @@
                                    WidthRequest="80"
                                    HorizontalOptions="Center"/>
                                 </StackLayout>
-                            </Frame>
+                            </Border>
                             </StackLayout>
                         </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
           
             <!--Vegetables-->
-            <Frame Grid.Row="2" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+            <Border Grid.Row="2" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Vegetables" FontSize="30"/>
-            </Frame>
+            </Border>
 
             <CollectionView ItemsSource="{Binding Vegetables}" Grid.Row="3" ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
-                            <Frame HasShadow="True"
-                           BorderColor="DarkGray"
-                           CornerRadius="5"
+                            <Border
                            Margin="20"
                            HeightRequest="150"
                            HorizontalOptions="Center"
@@ -81,24 +74,23 @@
                                    HorizontalOptions="Center" />
 
                                 </StackLayout>
-                            </Frame>
+                            </Border>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
             <!--Dairies.-->
-            <Frame Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+            <Border Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Dairies" FontSize="30"/>
-            </Frame>
+            </Border>
 
             <CollectionView ItemsSource="{Binding Dairies}" Grid.Row="5" ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
                         <StackLayout>
-                            <Frame HasShadow="True"
-                           BorderColor="DarkGray"
-                           CornerRadius="5"
+                            <Border
+                          
                            Margin="20"
                            HeightRequest="150"
                            HorizontalOptions="Center"
@@ -116,13 +108,12 @@
                                    HorizontalOptions="Center" />
 
                                 </StackLayout>
-                            </Frame>
+                            </Border>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
 
-        <ImageButton Source="refresh.png" WidthRequest="40" HeightRequest="40" Command="{Binding GetJsonCommand}" Grid.Row="10"/>
     </StackLayout>
 </ContentPage>
