@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net6.0-maccatalyst;net7.0-ios;net7.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -64,6 +64,7 @@
 	  <None Remove="Resources\Images\cheese.png" />
 	  <None Remove="Resources\Images\code.png" />
 	  <None Remove="Resources\Images\cucumber.png" />
+	  <None Remove="Resources\Images\details.png" />
 	  <None Remove="Resources\Images\edit_pen.png" />
 	  <None Remove="Resources\Images\email_icon.png" />
 	  <None Remove="Resources\Images\logo.png" />
@@ -71,6 +72,7 @@
 	  <None Remove="Resources\Images\pwd_icon.png" />
 	  <None Remove="Resources\Images\refresh.png" />
 	  <None Remove="Resources\Images\salad.png" />
+	  <None Remove="Resources\Images\scanner.png" />
 	  <None Remove="Resources\Images\type.png" />
 	  <None Remove="Resources\Images\user_icon.png" />
 	  <None Remove="Resources\Images\yogurt.png" />

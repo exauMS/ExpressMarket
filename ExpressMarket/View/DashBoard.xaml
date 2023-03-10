@@ -10,13 +10,10 @@
 
     <StackLayout>
 
-        <HorizontalStackLayout>
-            <Frame WidthRequest="195" HeightRequest="60" Padding="5" BackgroundColor="LightBlue">
-                <Button Text="Scan"/>
-            </Frame>
-            <Frame WidthRequest="195" HeightRequest="60" Padding="5" BackgroundColor="LightBlue">
-                <Button Text="Details" Command="{Binding GoToDetailsPageCommand}"/>
-            </Frame>
+        <HorizontalStackLayout HeightRequest="30">
+            <ImageButton Source="scanner.png" WidthRequest="130" HeightRequest="40" Command="{Binding GetJsonCommand}"/>
+            <ImageButton Source="refresh.png" WidthRequest="130" HeightRequest="40" Command="{Binding GetJsonCommand}"/>
+            <ImageButton Source="details.png" WidthRequest="130" HeightRequest="40" Command="{Binding GoToDetailsPageCommand}"/>
         </HorizontalStackLayout>
         <Grid RowDefinitions="60,150,60,150,60,150" ColumnDefinitions="*">
             <!--Fruits-->
@@ -124,7 +121,7 @@
             </CarouselView>
         </Grid>
 
-        <ImageButton Source="refresh.png" WidthRequest="40" HeightRequest="40" Command="{Binding GetJsonCommand}" Grid.Row="10"/>
+        
     </StackLayout>
    
 
