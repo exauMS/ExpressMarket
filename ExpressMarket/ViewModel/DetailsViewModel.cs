@@ -24,10 +24,30 @@ public partial class DetailsViewModel : ContentPage
     [RelayCommand]
     async Task GoToDetailsFormPage(Article data)
     {
-        await Shell.Current.GoToAsync(nameof(DetailsFormPage), true, new Dictionary<string, object>
+        if (DeviceInfo.Platform == DevicePlatform.Android)
         {
-            {"ArticleFromDetails", data }
+            await Shell.Current.GoToAsync(nameof(DetailsFormPage), true, new Dictionary<string, object>
+            {
+                {"ArticleFromDetails", data }
 
-        });
+            });
+        }  
+        else if (DeviceInfo.Platform == DevicePlatform.WinUI)
+        {
+            await Shell.Current.GoToAsync(nameof(DetailsFormWindowsPage), true, new Dictionary<string, object>
+            {
+                {"ArticleFromDetails", data }
+
+            });
+        }
+           
+        else
+            await Shell.Current.GoToAsync(nameof(DetailsFormWindowsPage), true, new Dictionary<string, object>
+            {
+                {"ArticleFromDetails", data }
+
+            });
+
     }
+
 }

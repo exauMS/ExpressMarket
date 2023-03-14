@@ -1,8 +1,9 @@
+
+
 namespace ExpressMarket.ViewModel;
 
 public partial class LoginViewModel : ObservableObject
 {
-    
 	public LoginViewModel()
 	{
 		

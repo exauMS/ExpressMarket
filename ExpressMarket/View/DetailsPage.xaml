@@ -96,7 +96,7 @@
                                        LineBreakMode="TailTruncation" />
 
                                     </StackLayout>
-                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
+                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Vegetables}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
                                 </Grid>
                             </Frame>
                         </StackLayout>
@@ -144,7 +144,7 @@
                                        LineBreakMode="TailTruncation" />
 
                                     </StackLayout>
-                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
+                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Dairies}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
                                 </Grid>
                             </Frame>
                         </StackLayout>
