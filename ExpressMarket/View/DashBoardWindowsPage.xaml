@@ -9,7 +9,7 @@
     <StackLayout>
 
         <HorizontalStackLayout HeightRequest="40">
-            <ImageButton Source="scanner.png" WidthRequest="130" HeightRequest="40" Command="{Binding GetJsonCommand}"/>
+            <ImageButton Source="scanner.png" WidthRequest="130" HeightRequest="40" Command="{Binding GoToScannerPageCommand}"/>
             <ImageButton Source="refresh.png" WidthRequest="130" HeightRequest="40" Command="{Binding GetJsonCommand}"/>
             <ImageButton Source="details.png" WidthRequest="130" HeightRequest="40" Command="{Binding GoToDetailsPageCommand}"/>
         </HorizontalStackLayout>
