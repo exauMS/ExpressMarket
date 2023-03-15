@@ -27,6 +27,12 @@ public partial class DashBoardViewModel : ContentPage
         await Shell.Current.GoToAsync(nameof(DetailsPage));
     }
 
+    [RelayCommand]
+    async Task GoToScannerPage()
+    {
+        await Shell.Current.GoToAsync(nameof(ScannerWindowsPage));
+    }
+
 
     [RelayCommand]
     async Task GetJson()
