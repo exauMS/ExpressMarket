@@ -55,7 +55,7 @@ public partial class DashBoardViewModel : ContentPage
         RefreshList();
     }
 
-    void RefreshList()
+    public void RefreshList()
     {
         Fruits.Clear();
         Vegetables.Clear();
