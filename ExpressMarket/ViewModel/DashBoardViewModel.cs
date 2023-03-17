@@ -9,7 +9,7 @@ public partial class DashBoardViewModel : ContentPage
     public ObservableCollection<Article> Dairies { get; set; } = new ObservableCollection<Article>();
     ArticleService articleService;
     bool jsonTreated=false;
-
+    DeviceOrientationServices MyDeviceOrientationService;
 
     public DashBoardViewModel()
     {
@@ -18,7 +18,10 @@ public partial class DashBoardViewModel : ContentPage
     public DashBoardViewModel(ArticleService service)
     {
         articleService = service;
-       
+        this.MyDeviceOrientationService = new DeviceOrientationServices();
+
+        MyDeviceOrientationService.ConfigureScanner();
+
     }
 
     [RelayCommand]
