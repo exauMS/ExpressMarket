@@ -8,16 +8,7 @@ public partial class DetailsViewModel : ContentPage
 
     public DetailsViewModel()
 	{
-        foreach (var item in GlobalsTools.articles)
-        {
-            if (item.Type.Equals("Fruit"))
-                Fruits.Add(item);
-            else if (item.Type.Equals("Vegetable"))
-                Vegetables.Add(item);
-            else if (item.Type.Equals("Dairy"))
-                Dairies.Add(item);
-
-        }
+        RefreshList();
     }
 
 
@@ -48,6 +39,23 @@ public partial class DetailsViewModel : ContentPage
 
             });
 
+    }
+
+    public void RefreshList()
+    {
+        Fruits.Clear();
+        Vegetables.Clear();
+        Dairies.Clear();
+        foreach (var item in GlobalsTools.articles)
+        {
+            if (item.Type.Equals("Fruit"))
+                Fruits.Add(item);
+            else if (item.Type.Equals("Vegetable"))
+                Vegetables.Add(item);
+            else if (item.Type.Equals("Dairy"))
+                Dairies.Add(item);
+
+        }
     }
 
 }

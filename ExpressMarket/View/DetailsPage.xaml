@@ -17,14 +17,16 @@
             <CollectionView ItemsSource="{Binding Fruits}" Grid.Row="1" x:Name="Fruits">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
-                        <StackLayout>
-                            <Frame HasShadow="True"
-                           BorderColor="DarkGray"
-                           CornerRadius="5"
+                       
+                            <Frame 
                            HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand"
-                                   WidthRequest="400">
-                                <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*,.10*">
+                               HasShadow="True"
+                           BorderColor="DarkGray"
+                           CornerRadius="5"
+                                  >
+                            <Grid RowDefinitions="*">
+                                <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
 
                                     <StackLayout Grid.Column="0">
                                         <Image Source="{Binding ImageUrl}"
@@ -51,8 +53,9 @@
                                     </StackLayout>
                                     <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
                                 </Grid>
-                            </Frame>
-                        </StackLayout>
+                            </Grid>
+                        </Frame>
+                        
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -64,13 +67,14 @@
             <CollectionView ItemsSource="{Binding Vegetables}" Grid.Row="3" x:Name="Vegetables">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
-                        <StackLayout>
-                            <Frame HasShadow="True"
+                        <Frame 
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                               HasShadow="True"
                            BorderColor="DarkGray"
                            CornerRadius="5"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand"
-                                   WidthRequest="400">
+                                  >
+                            <Grid RowDefinitions="*">
                                 <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
 
                                     <StackLayout Grid.Column="0">
@@ -96,10 +100,10 @@
                                        LineBreakMode="TailTruncation" />
 
                                     </StackLayout>
-                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Vegetables}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
+                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
                                 </Grid>
-                            </Frame>
-                        </StackLayout>
+                            </Grid>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -112,13 +116,14 @@
             <CollectionView ItemsSource="{Binding Dairies}" Grid.Row="5" x:Name="Dairies">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
-                        <StackLayout>
-                            <Frame HasShadow="True"
+                        <Frame 
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                               HasShadow="True"
                            BorderColor="DarkGray"
                            CornerRadius="5"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand"
-                                   WidthRequest="400">
+                                  >
+                            <Grid RowDefinitions="*">
                                 <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
 
                                     <StackLayout Grid.Column="0">
@@ -144,10 +149,10 @@
                                        LineBreakMode="TailTruncation" />
 
                                     </StackLayout>
-                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Dairies}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
+                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
                                 </Grid>
-                            </Frame>
-                        </StackLayout>
+                            </Grid>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
