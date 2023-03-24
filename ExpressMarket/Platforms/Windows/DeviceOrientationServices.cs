@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
@@ -7,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace ExpressMarket.Services
 {
-    public partial class DeviceOrientationService
+    public partial class DeviceOrientationServices
     {
         SerialPort mySerialPort;
+        public QueueBuffer SerialBuffer;
 
         public partial void ConfigureScanner()
         {
             this.mySerialPort = new SerialPort();
+            this.SerialBuffer = new QueueBuffer();
 
-            mySerialPort.PortName = "COM3";
+            mySerialPort.PortName = "COM5";
             mySerialPort.BaudRate = 9600;
             mySerialPort.Parity = Parity.None;
             mySerialPort.DataBits = 8;
@@ -32,7 +35,6 @@ namespace ExpressMarket.Services
             }
             catch (Exception ex)
             {
-
                 Shell.Current.DisplayAlert("Error", ex.Message, "OK");
             }
 
@@ -45,8 +47,33 @@ namespace ExpressMarket.Services
             string data = "";
 
             data = sp.ReadTo("\r");
-            GlobalsTools.SerialBuffer.Enqueue(data);
+            SerialBuffer.Enqueue(data);
+           
+
+           
+
+
+
+        }
+
+
+        public class QueueBuffer:Queue
+        {
+            public event EventHandler Changed;
+
+            protected virtual void OnChanged()
+            {
+                if (Changed != null) Changed(this, EventArgs.Empty);
+            }
+
+            public override void Enqueue(object item)
+            {
+                base.Enqueue(item);
+                OnChanged();
+            }
 
         }
     }
+
+   
 }
