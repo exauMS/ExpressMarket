@@ -9,5 +9,4 @@ global using ExpressMarket.Services;
 internal class GlobalsTools
 {
     public static List<Article> articles = new List<Article>();
-    public static Queue<string> SerialBuffer = new Queue<string>();
 }

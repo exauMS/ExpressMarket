@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ExpressMarket.Services
 {
-    internal class DeviceOrientationServices
+    public partial class DeviceOrientationServices
     {
+        public DeviceOrientationServices() { }
+
+        public partial void ConfigureScanner();
     }
 }
