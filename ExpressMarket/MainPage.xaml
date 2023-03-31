@@ -9,7 +9,8 @@
                          VerticalOptions="Center">
         <Label Text="Welcome!" TextColor="DarkGreen" FontSize="50" HorizontalTextAlignment="Center" FontFamily="OpenSans-Semibold"/>
         <Label Text="Discover the best products" TextColor="Green" FontSize="29" HorizontalTextAlignment="Center" FontFamily="OpenSans-Semibold"/>
-        <Image Source="logo.png"  WidthRequest="200" HeightRequest="200"/>
+            <Label Text="Version 1.0" TextColor="Red" FontSize="29" HorizontalTextAlignment="Center" FontFamily="OpenSans-Semibold"/>
+            <Image Source="logo.png"  WidthRequest="200" HeightRequest="200"/>
         <Button Text="DashBoard" WidthRequest="200" CornerRadius="20" Command="{Binding GoToDashBoardPageCommand}"/>
         </VerticalStackLayout>
     </ScrollView>
