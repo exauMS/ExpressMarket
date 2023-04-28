@@ -16,9 +16,9 @@ public partial class RegisterViewModel : ObservableObject
     async Task AddUser()
     {
         User user = new User();
-        user.UserName = userName;
-        user.Email = email;
-        user.Password = password;
+        user.UserName = UserName;
+        user.Email = Email;
+        user.Password = Password;
         await UserService.AddUserAsync(user);
 
         //login page redirection
@@ -28,6 +28,8 @@ public partial class RegisterViewModel : ObservableObject
     [RelayCommand]
     async Task GoToLoginPage()
     {
-        await Shell.Current.GoToAsync(nameof(LoginPage));
+        await Shell.Current.GoToAsync("..");
+        
+       // Task Back() => Shell.Current.GoToAsync(nameof(LoginPage));
     }
 }

@@ -25,21 +25,21 @@
                     <DataTemplate x:DataType="model:Article">
                             <StackLayout>
                             <Border 
-                           Margin="20"
-                           HeightRequest="150"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                                Margin="20"
+                                HeightRequest="150"
+                                HorizontalOptions="Center"
+                                VerticalOptions="CenterAndExpand">
                                 <StackLayout BackgroundColor="Transparent">
                                     <Label Text="{Binding Name}"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center" />
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
-                                   HeightRequest="80"
-                                   WidthRequest="80"
-                                   HorizontalOptions="Center"/>
+                                           Aspect="AspectFill"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           HorizontalOptions="Center"/>
                                 </StackLayout>
                             </Border>
                             </StackLayout>
@@ -57,21 +57,21 @@
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
                             <Border
-                           Margin="20"
-                           HeightRequest="150"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                                Margin="20"
+                                HeightRequest="150"
+                                HorizontalOptions="Center"
+                                VerticalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Label Text="{Binding Name}"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center" />
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
-                                   HeightRequest="80"
-                                   WidthRequest="80"
-                                   HorizontalOptions="Center" />
+                                           Aspect="AspectFill"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           HorizontalOptions="Center" />
 
                                 </StackLayout>
                             </Border>
@@ -90,22 +90,21 @@
                     <DataTemplate x:DataType="{x:Type model:Article}">
                         <StackLayout>
                             <Border
-                          
-                           Margin="20"
-                           HeightRequest="150"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                                Margin="20"
+                                HeightRequest="150"
+                                HorizontalOptions="Center"
+                                VerticalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Label Text="{Binding Name}"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center" />
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
-                                   HeightRequest="80"
-                                   WidthRequest="80"
-                                   HorizontalOptions="Center" />
+                                           Aspect="AspectFill"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           HorizontalOptions="Center" />
 
                                 </StackLayout>
                             </Border>

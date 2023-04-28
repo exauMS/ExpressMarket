@@ -17,51 +17,47 @@
         </HorizontalStackLayout>
         <Grid RowDefinitions="60,150,60,150,60,150" ColumnDefinitions="*">
             <!--Fruits-->
-            <Frame Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+            <Border Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Fruits" FontSize="30"/>
-            </Frame>
+            </Border>
             
             
             <CarouselView ItemsSource="{Binding Fruits}" Grid.Row="1" PeekAreaInsets="100">
                 <CarouselView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
-                            <Frame HasShadow="True"
-                           BorderColor="DarkGray"
-                           CornerRadius="5"
+                            <Border
                            Margin="20"
                            HeightRequest="150"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Label Text="{Binding Name}"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center" />
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
-                                   HeightRequest="80"
-                                   WidthRequest="80"
-                                   HorizontalOptions="Center"/>
+                                           Aspect="AspectFit"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           HorizontalOptions="Center"/> 
                                 </StackLayout>
-                            </Frame>
+                            </Border>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
             <!--Vegetables-->
-            <Frame Grid.Row="2" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+            <Border Grid.Row="2" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Vegetables" FontSize="30"/>
-            </Frame>
+            </Border>
 
             <CarouselView ItemsSource="{Binding Vegetables}" Grid.Row="3" PeekAreaInsets="100">
                 <CarouselView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
-                            <Frame HasShadow="True"
-                           BorderColor="DarkGray"
-                           CornerRadius="5"
+                            <Border
                            Margin="20"
                            HeightRequest="150"
                            HorizontalOptions="Center"
@@ -73,30 +69,28 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
+                                   Aspect="AspectFit"
                                    HeightRequest="80"
                                    WidthRequest="80"
                                    HorizontalOptions="Center" />
                                    
                                 </StackLayout>
-                            </Frame>
+                            </Border>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView> 
 
             <!--Dairies.-->
-            <Frame Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
+            <Border Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Dairies" FontSize="30"/>
-            </Frame>
+            </Border>
 
             <CarouselView ItemsSource="{Binding Dairies}" Grid.Row="5" PeekAreaInsets="100">
                 <CarouselView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
                         <StackLayout>
-                            <Frame HasShadow="True"
-                           BorderColor="DarkGray"
-                           CornerRadius="5"
+                            <Border
                            Margin="20"
                            HeightRequest="150"
                            HorizontalOptions="Center"
@@ -108,13 +102,13 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
+                                   Aspect="AspectFit"
                                    HeightRequest="80"
                                    WidthRequest="80"
                                    HorizontalOptions="Center" />
                                    
                                 </StackLayout>
-                            </Frame>
+                            </Border>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>

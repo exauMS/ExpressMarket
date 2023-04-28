@@ -11,14 +11,14 @@ namespace ExpressMarket.Services
     public partial class DeviceOrientationServices
     {
         SerialPort mySerialPort;
-        public QueueBuffer SerialBuffer;
+       
 
         public partial void ConfigureScanner()
         {
             this.mySerialPort = new SerialPort();
             this.SerialBuffer = new QueueBuffer();
 
-            mySerialPort.PortName = "COM5";
+            mySerialPort.PortName = "COM3";
             mySerialPort.BaudRate = 9600;
             mySerialPort.Parity = Parity.None;
             mySerialPort.DataBits = 8;
@@ -57,22 +57,7 @@ namespace ExpressMarket.Services
         }
 
 
-        public class QueueBuffer:Queue
-        {
-            public event EventHandler Changed;
-
-            protected virtual void OnChanged()
-            {
-                if (Changed != null) Changed(this, EventArgs.Empty);
-            }
-
-            public override void Enqueue(object item)
-            {
-                base.Enqueue(item);
-                OnChanged();
-            }
-
-        }
+      
     }
 
    

@@ -18,29 +18,63 @@
         </VerticalStackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56" BackgroundColor="LightGray">
-                <Image Source="code.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1" 
+                    HeightRequest="56" 
+                    WidthRequest="56" 
+                    BackgroundColor="LightGray">
+                    <Image Source="code.png" 
+                           HeightRequest="30" 
+                           WidthRequest="30"/>
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Code" Text="{Binding Data.Code}" IsReadOnly="True" BackgroundColor="LightGray"/>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="LightGray">
+                    <Entry Margin="20,0,0,0" 
+                           VerticalOptions="Center" 
+                           Placeholder="Code" 
+                           Text="{Binding Data.Code}" 
+                           IsReadOnly="True" 
+                           BackgroundColor="LightGray"/>
+            </Border>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Border ZIndex="1" 
+                    HeightRequest="56"
+                    WidthRequest="56">
+                    <Image Source="user_icon.png"
+                           HeightRequest="30"
+                           WidthRequest="30" />
+            </Border>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20,0,0,0" 
+                           VerticalOptions="Center" 
+                           Placeholder="Creator" 
+                           Keyboard="Email" 
+                           Text="{Binding Data.Creator}"/>
             </Border>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56">
-                <Image Source="user_icon.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1" 
+                    HeightRequest="56" 
+                    WidthRequest="56">
+                    <Image Source="type.png" 
+                           HeightRequest="30"
+                           WidthRequest="30" />
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Creator" Keyboard="Email" Text="{Binding Data.Creator}"/>
-            </Border>
-        </StackLayout>
-
-        <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56">
-                <Image Source="type.png" HeightRequest="30" WidthRequest="30" />
-            </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Type" Text="{Binding Data.Type}"/>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                <Entry Margin="20,0,0,0" 
+                       VerticalOptions="Center" 
+                       Placeholder="Type" 
+                       Text="{Binding Data.Type}"/>
             </Border>
         </StackLayout>
 

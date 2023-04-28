@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-
 namespace ExpressMarket.ViewModel;
 
 public partial class DashBoardViewModel : ContentPage
@@ -17,8 +15,6 @@ public partial class DashBoardViewModel : ContentPage
     public DashBoardViewModel(ArticleService service)
     {
         articleService = service;
-       
-
     }
 
     [RelayCommand]

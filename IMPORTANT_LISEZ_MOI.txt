@@ -1,0 +1,1 @@
+En cas de problème d'ouverture de l'application, cloner directement le dépot github sur votre pc (voir document explicatif pour le lien github). 
