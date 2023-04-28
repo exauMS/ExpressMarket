@@ -9,9 +9,10 @@ public partial class LoginViewModel : ObservableObject
 		
 	}
 
-    [RelayCommand]
-    async Task GoToRegisterPage()
-    {
+	[RelayCommand]
+	async Task GoToRegisterPage()
+	{
         await Shell.Current.GoToAsync(nameof(RegisterPage));
     }
+ 
 }

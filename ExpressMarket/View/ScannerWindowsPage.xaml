@@ -7,14 +7,45 @@
 
    
     <VerticalStackLayout x:Name="vStackLayout">
-        <ImageButton Source="add.png" HorizontalOptions="End" WidthRequest="60" HeightRequest="60" Command="{Binding GoToCreateArticleFormPageCommand}" x:Name="createArticleBtn"/>
-        <Border BackgroundColor="LightGreen" HeightRequest="500" WidthRequest="800">
+        <ImageButton Source="add.png" 
+                     HorizontalOptions="End" 
+                     WidthRequest="60" 
+                     HeightRequest="60" 
+                     Command="{Binding GoToCreateArticleFormPageCommand}" 
+                     x:Name="createArticleBtn"/>
+        <Border BackgroundColor="LightGreen" 
+                HeightRequest="500" 
+                WidthRequest="800">
             <Grid RowDefinitions="100,100,100,100,100">
-                <Image Source="{Binding ImageUrl}" Grid.Row="0"/>
-                <Label Text="{Binding Name}" FontSize="20" FontFamily="OpenSans-Semibold" TextColor="Green" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1"/>
-                <Label Text="{Binding Product.Creator}" FontSize="20" FontFamily="OpenSans-Semibold" TextColor="Green" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="2"/>
-                <Label Text="{Binding Product.Code}" FontSize="20" FontFamily="OpenSans-Semibold" TextColor="Green" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="3"/>
-                <Label Text="{Binding Product.Type}" FontSize="20" FontFamily="OpenSans-Semibold" TextColor="Green" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="4"/>
+                <Image Source="{Binding ImageUrl}"
+                       Grid.Row="0"/>
+                <Label Text="{Binding Name}" 
+                       FontSize="20" 
+                       FontFamily="OpenSans-Semibold" 
+                       TextColor="Green" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Row="1"/>
+                
+                <Label Text="{Binding Product.Creator}" 
+                       FontSize="20" FontFamily="OpenSans-Semibold" 
+                       TextColor="Green" HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       Grid.Row="2"/>
+                <Label Text="{Binding Product.Code}" 
+                       FontSize="20" 
+                       FontFamily="OpenSans-Semibold" 
+                       TextColor="Green" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       Grid.Row="3"/>
+                <Label Text="{Binding Product.Type}" 
+                       FontSize="20" 
+                       FontFamily="OpenSans-Semibold" 
+                       TextColor="Green" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       Grid.Row="4"/>
             </Grid>
         </Border>
     </VerticalStackLayout>

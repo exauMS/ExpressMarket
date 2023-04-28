@@ -10,7 +10,7 @@ public partial class CreateArticleFormViewModel : ObservableObject
     Article product;
 	public CreateArticleFormViewModel()
 	{
-        product = new Article();
+        Product = new Article();
 	}
 
     [RelayCommand]
@@ -38,6 +38,7 @@ public partial class CreateArticleFormViewModel : ObservableObject
         }
         catch (Exception ex)
         {
+            await Shell.Current.DisplayAlert("Add image error ", ex.Message, "OK");
             // The user canceled or something went wrong
         }
     }
