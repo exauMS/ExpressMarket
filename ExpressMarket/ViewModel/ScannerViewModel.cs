@@ -25,9 +25,7 @@ public partial class ScannerViewModel : ObservableObject
     [RelayCommand]
     async Task GoToCreateArticleFormPage()
     {
-        
-            await Shell.Current.GoToAsync(nameof(CreateArticleFormPage));
-        
+       await Shell.Current.GoToAsync(nameof(CreateArticleFormPage));
     }
 
     private  void SerialBuffer_Changed(object sender, EventArgs e)
@@ -43,7 +41,6 @@ public partial class ScannerViewModel : ObservableObject
                 Product= data;
                 ImageUrl = Product.ImageUrl;
                 Name = Product.Name;
-               
             }
         }
 

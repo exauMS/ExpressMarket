@@ -14,7 +14,7 @@
         </Tab>
         <Tab Title="Profil"
             Icon="user_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:UserPage}" />
         </Tab>
     </TabBar>
 

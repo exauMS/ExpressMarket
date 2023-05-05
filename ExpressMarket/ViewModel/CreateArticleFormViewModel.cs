@@ -46,10 +46,13 @@ public partial class CreateArticleFormViewModel : ObservableObject
     [RelayCommand]
     async void Create(Article article)
     {
-        if (string.IsNullOrWhiteSpace(article.Creator) || string.IsNullOrWhiteSpace(article.Type) || string.IsNullOrEmpty(article.Creator) || string.IsNullOrEmpty(article.Type)
-            || string.IsNullOrWhiteSpace(article.Name) || string.IsNullOrWhiteSpace(article.Code) || string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Code)
+        if (string.IsNullOrWhiteSpace(article.Creator) || string.IsNullOrWhiteSpace(article.Type) 
+            || string.IsNullOrEmpty(article.Creator) || string.IsNullOrEmpty(article.Type)
+            || string.IsNullOrWhiteSpace(article.Name) || string.IsNullOrWhiteSpace(article.Code) 
+            || string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Code)
             || string.IsNullOrWhiteSpace(article.ImageUrl) || string.IsNullOrEmpty(article.ImageUrl))
         { return; }
+
         GlobalsTools.articles.Add(article);
         await Shell.Current.DisplayAlert("Successfully Created!", "You can go back.", "OK");
     }

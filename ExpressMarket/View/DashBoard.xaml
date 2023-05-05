@@ -20,28 +20,27 @@
             <Border Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
                 <Label Text="Fruits" FontSize="30"/>
             </Border>
-            
-            
+
             <CarouselView ItemsSource="{Binding Fruits}" Grid.Row="1" PeekAreaInsets="100">
                 <CarouselView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
                             <Border
-                           Margin="20"
-                           HeightRequest="150"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                                Margin="20"
+                                HeightRequest="150"
+                                HorizontalOptions="Center"
+                                VerticalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Label Text="{Binding Name}"
-                                           FontAttributes="Bold"
-                                           FontSize="18"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center" />
+                                               FontAttributes="Bold"
+                                               FontSize="18"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                           Aspect="AspectFit"
-                                           HeightRequest="80"
-                                           WidthRequest="80"
-                                           HorizontalOptions="Center"/> 
+                                               Aspect="AspectFit"
+                                               HeightRequest="80"
+                                               WidthRequest="80"
+                                               HorizontalOptions="Center"/>
                                 </StackLayout>
                             </Border>
                         </StackLayout>
@@ -58,28 +57,27 @@
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
                             <Border
-                           Margin="20"
-                           HeightRequest="150"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                                Margin="20"
+                                HeightRequest="150"
+                                HorizontalOptions="Center"
+                                VerticalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Label Text="{Binding Name}"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center" />
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFit"
-                                   HeightRequest="80"
-                                   WidthRequest="80"
-                                   HorizontalOptions="Center" />
-                                   
+                                           Aspect="AspectFit"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           HorizontalOptions="Center" />
                                 </StackLayout>
                             </Border>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
-            </CarouselView> 
+            </CarouselView>
 
             <!--Dairies.-->
             <Border Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
@@ -91,22 +89,21 @@
                     <DataTemplate x:DataType="{x:Type model:Article}">
                         <StackLayout>
                             <Border
-                           Margin="20"
-                           HeightRequest="150"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand">
+                                Margin="20"
+                                HeightRequest="150"
+                                HorizontalOptions="Center"
+                                VerticalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Label Text="{Binding Name}"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center" />
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFit"
-                                   HeightRequest="80"
-                                   WidthRequest="80"
-                                   HorizontalOptions="Center" />
-                                   
+                                           Aspect="AspectFit"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           HorizontalOptions="Center" />
                                 </StackLayout>
                             </Border>
                         </StackLayout>
@@ -114,12 +111,5 @@
                 </CarouselView.ItemTemplate>
             </CarouselView>
         </Grid>
-
-        
     </StackLayout>
-   
-
-
-
-
 </ContentPage>

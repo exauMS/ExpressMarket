@@ -9,13 +9,11 @@ namespace ExpressMarket.Model
 {
     public class User
     {
-        [PrimaryKey, AutoIncrement] 
-        public int Id { get; set; }
-        [MaxLength(50), Unique]
-        public string UserName { get; set; }
-        [Unique]
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public Int16 User_ID { get; set; }
+        public String UserName { get; set; }
+        public String UserPassword { get; set; }
+        public Int16 UserAccessType { get; set; }   
+       
 
     }
 }
