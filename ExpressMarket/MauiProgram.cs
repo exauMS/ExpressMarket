@@ -39,6 +39,9 @@ public static class MauiProgram
         //Services
         builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<ArticleService>();
+        builder.Services.AddTransient<UserManagementServices>();
+        builder.Services.AddTransient<DeviceOrientationServices>();
+
 
 
         return builder.Build();

@@ -4,7 +4,7 @@ public partial class MainViewModel : ObservableObject
 {
 	public MainViewModel()
 	{
-        UserDataTables MyUserTables = new();
+        CreateUserDataTables MyUserTables = new();
     }
 
     [RelayCommand]

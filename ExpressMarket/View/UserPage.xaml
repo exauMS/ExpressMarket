@@ -7,8 +7,12 @@
              x:DataType="viewmodel:UserViewModel"
              Title="UserPage">
     <VerticalStackLayout x:Name ="UserFromDB">
-        
-        <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillFromDBCommand}"
+        <Button Text="Read access Types" 
+                WidthRequest ="150" 
+                HeightRequest ="100" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.ReadAccessCommand}"
+                IsEnabled="{Binding IsNotBusy}"/>
+
+        <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillUsersCommand}"
                 IsEnabled="{Binding IsNotBusy}"/>
 
         <CollectionView ItemsSource="{Binding ShownList}" SelectionMode="None" Background="white" Grid.Row="3" x:Name="UserInfo">

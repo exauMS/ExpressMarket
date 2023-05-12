@@ -15,9 +15,9 @@ public partial class DashBoardViewModel : ContentPage
     public DashBoardViewModel(ArticleService service)
     {
         articleService = service;
-        UserDataTables MyUserTables = new();
+        CreateUserDataTables MyUserTables = new();
 
-     //   GlobalsTools.UserSet.Tables["Users"].Columns["UserName"] = "Data";
+        //   GlobalsTools.UserSet.Tables["Users"].Columns["UserName"] = "Data";
     }
 
     [RelayCommand]
