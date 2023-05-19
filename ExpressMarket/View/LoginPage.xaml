@@ -35,8 +35,9 @@
                     HorizontalOptions="FillAndExpand">
                     <Entry Margin="20,0,0,0" 
                            VerticalOptions="Center" 
-                           Placeholder="User Name" 
-                           Keyboard="Email" />
+                           Placeholder="User Name"
+                           Keyboard="Email"
+                           Text="{Binding Username}"/>
             </Border>
         </StackLayout>
 
@@ -55,7 +56,8 @@
                              <Entry Margin="20,0,0,0" 
                                     VerticalOptions="Center" 
                                     Placeholder="Password" 
-                                    IsPassword="True" />
+                                    IsPassword="True"
+                                     Text="{Binding Password}"/>
                      </Border>
         </StackLayout>
 
@@ -63,7 +65,7 @@
                 WidthRequest="100" 
                 CornerRadius="20" 
                 HorizontalOptions="Center" 
-                Command="{Binding GoToLoginCommand}"/>
+                Command="{Binding GoDashBoardCommand}"/>
 
         <StackLayout Orientation="Horizontal" 
                      Spacing="5" 

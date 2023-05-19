@@ -11,7 +11,7 @@ public partial class UserViewModel : BaseViewModel
 
 		MyDBServices.ConfigTools();
     }
-    public ObservableCollection<User> ShownList { get; set; } = new();
+	public ObservableCollection<User> ShownList { get; set; } = new();
 
 
 
@@ -61,7 +61,8 @@ public partial class UserViewModel : BaseViewModel
 		{
 		    ShownList.Add(item);
 		}
-		IsBusy = false;
+        GlobalsTools.UserListFromDB = ShownList;
+        IsBusy = false;
 	
 	}
 
