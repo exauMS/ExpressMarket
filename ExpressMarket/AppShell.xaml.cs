@@ -7,10 +7,10 @@ public partial class AppShell : Shell
 	public AppShell()
 	{
 		InitializeComponent();
-        Routing.RegisterRoute(nameof(UserPage), typeof(UserPage));
-        Routing.RegisterRoute(nameof(UserPage), typeof(UserPage));
+        Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+        //Routing.RegisterRoute(nameof(UserPage), typeof(UserPage));
 
-        if(DeviceInfo.Platform == DevicePlatform.Android)
+        if (DeviceInfo.Platform == DevicePlatform.Android)
         {
             Routing.RegisterRoute(nameof(DashBoard), typeof(DashBoard));
             Routing.RegisterRoute(nameof(DetailsFormPage), typeof(DetailsFormPage));

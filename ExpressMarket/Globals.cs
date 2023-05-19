@@ -10,4 +10,5 @@ internal class GlobalsTools
 {
     public static List<Article> articles = new();
     public static DataSet UserSet = new();
+    public static ObservableCollection<User> UserListFromDB { get; set; } = new();
 }
