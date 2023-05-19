@@ -44,6 +44,7 @@ public class CreateUserDataTables
 
         Access_ID.AutoIncrement = true;
         Access_ID.Unique = true;
+       
         AccessTable.Columns.Add(Access_ID);
 
         AccessName.Unique = true;

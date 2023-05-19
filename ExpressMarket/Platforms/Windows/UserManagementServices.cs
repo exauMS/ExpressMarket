@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.OleDb;
+﻿using System.Data.OleDb;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace ExpressMarket.Services;
@@ -17,7 +13,7 @@ public partial class UserManagementServices
     {
         //1 Definir le ConnectionString 
         Connexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.16.0;"
-                                      + "@Data Source=" + Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "QualityServer", "UserAccounts.accdb")
+                                      + "Data Source=" + Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "QualityServer", "UserAccounts.accdb")
                                       + ";Persist Security Info=false";
 
         //2 Etablir les commandes 
@@ -51,21 +47,53 @@ public partial class UserManagementServices
         UsersAdapter.UpdateCommand.Parameters.Add("@UserName", OleDbType.VarChar, 40, "UserName");
         UsersAdapter.UpdateCommand.Parameters.Add("@UserPassword", OleDbType.VarChar, 40, "UserPassword");
         UsersAdapter.UpdateCommand.Parameters.Add("@UserAccessType", OleDbType.Numeric, 100, "UserAccessType");
-
-
     }
     public async Task ReadAccessTable()
     {
         OleDbCommand SelectCommand = new OleDbCommand("SELECT * FROM DB_Access ORDER BY Access_ID;", Connexion);
         try
         {
+            GlobalsTools.UserSet.Tables["Access"].Clear();
             Connexion.Open();
             OleDbDataReader Reader = SelectCommand.ExecuteReader();
             if (Reader.HasRows)
             {
+
+              
                 while (Reader.Read())
                 {
                     GlobalsTools.UserSet.Tables["Access"].Rows.Add(new object[] { Reader[0], Reader[1], Reader[2], Reader[3], Reader[4], Reader[5]});
+                }
+            }
+            Reader.Close();
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+        }
+        finally
+        {
+            Connexion.Close();
+        }
+    }
+
+
+
+    public async Task ReadUserTable()
+    {
+        OleDbCommand SelectCommand = new OleDbCommand("SELECT * FROM DB_Users ORDER BY User_ID;", Connexion);
+        try
+        {
+            GlobalsTools.UserSet.Tables["Users"].Clear();
+            Connexion.Open();
+            OleDbDataReader Reader = SelectCommand.ExecuteReader();
+            if (Reader.HasRows)
+            {
+
+
+                while (Reader.Read())
+                {
+                    GlobalsTools.UserSet.Tables["Users"].Rows.Add(new object[] { Reader[0], Reader[1], Reader[2], Reader[3]});
                 }
             }
             Reader.Close();
@@ -149,8 +177,6 @@ public partial class UserManagementServices
 
     public async Task UpdateUser(string name, string password, Int32 access)
     {
-
-
         try
         {
             Connexion.Open();

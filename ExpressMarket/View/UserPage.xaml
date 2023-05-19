@@ -12,6 +12,9 @@
                 HeightRequest ="100" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.ReadAccessCommand}"
                 IsEnabled="{Binding IsNotBusy}"/>
 
+
+
+
         <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillUsersCommand}"
                 IsEnabled="{Binding IsNotBusy}"/>
 
