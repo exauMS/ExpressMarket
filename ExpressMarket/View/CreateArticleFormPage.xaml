@@ -16,47 +16,97 @@
         </VerticalStackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56" >
-                <Image Source="name.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1" 
+                    HeightRequest="56" 
+                    WidthRequest="56" >
+                    <Image Source="name.png" 
+                           HeightRequest="30"
+                           WidthRequest="30" />
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0"  HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Name" Text="{Binding Product.Name}"/>
-            </Border>
-        </StackLayout>
-
-        <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56" >
-                <Image Source="user_icon.png" HeightRequest="30" WidthRequest="30" />
-            </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Creator" Text="{Binding Product.Creator}"/>
-            </Border>
-        </StackLayout>
-
-        <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56">
-                <Image Source="code.png" HeightRequest="30" WidthRequest="30" />
-            </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Code" Text="{Binding Product.Code}"/>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0"  
+                    HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20,0,0,0" 
+                           VerticalOptions="Center" 
+                           Placeholder="Name" 
+                           Text="{Binding Product.Name}"/>
             </Border>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56">
-                <Image Source="type.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1" 
+                    HeightRequest="56" 
+                    WidthRequest="56" >
+                    <Image Source="user_icon.png" 
+                           HeightRequest="30" 
+                           WidthRequest="30" />
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Type" Text="{Binding Product.Type}"/>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20,0,0,0" 
+                           VerticalOptions="Center" 
+                           Placeholder="Creator" 
+                           Text="{Binding Product.Creator}"/>
             </Border>
         </StackLayout>
 
-        <Image Source="{Binding Img}" HeightRequest="70" WidthRequest="70" />
+        <StackLayout Orientation="Horizontal">
+            <Border ZIndex="1" 
+                    HeightRequest="56" 
+                    WidthRequest="56">
+                    <Image Source="code.png" 
+                           HeightRequest="30" 
+                           WidthRequest="30" />
+            </Border>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20,0,0,0" 
+                           VerticalOptions="Center" 
+                           Placeholder="Code" 
+                           Text="{Binding Product.Code}"/>
+            </Border>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Border ZIndex="1" 
+                    HeightRequest="56" 
+                    WidthRequest="56">
+                    <Image Source="type.png" 
+                           HeightRequest="30" 
+                           WidthRequest="30" />
+            </Border>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20,0,0,0" 
+                           VerticalOptions="Center" 
+                           Placeholder="Type" 
+                           Text="{Binding Product.Type}"/>
+            </Border>
+        </StackLayout>
+
+        <Image Source="{Binding Img}" 
+               HeightRequest="70" 
+               WidthRequest="70" />
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
-            <Button Text="Add Image" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="LightGrey" Command="{Binding AddImageCommand}"/>
-            <Button Text="Create" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" Command="{Binding CreateCommand}" CommandParameter="{Binding Product}"/>
+            <Button Text="Add Image" 
+                    WidthRequest="100" 
+                    CornerRadius="20" 
+                    HorizontalOptions="Center" 
+                    BackgroundColor="LightGrey" 
+                    Command="{Binding AddImageCommand}"/>
+            <Button Text="Create" 
+                    WidthRequest="100"
+                    CornerRadius="20" 
+                    HorizontalOptions="Center" 
+                    Command="{Binding CreateCommand}"
+                    CommandParameter="{Binding Product}"/>
         </HorizontalStackLayout>
-        
-       
     </VerticalStackLayout>
 </ContentPage>

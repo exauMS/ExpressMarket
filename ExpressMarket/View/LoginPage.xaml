@@ -11,36 +11,69 @@
             Padding="30,0" 
             VerticalOptions="Center">
 
-        <Image Source="logo.png" HeightRequest="150" WidthRequest="150" />
+        <Image Source="logo.png" 
+               HeightRequest="150" 
+               WidthRequest="150" />
 
         <VerticalStackLayout Spacing="5">
-            <Label Text="Login to your account" FontSize="30" TextColor="Green" HorizontalTextAlignment="Center" />
+            <Label Text="Login to your account" 
+                       FontSize="30" TextColor="Green" 
+                       HorizontalTextAlignment="Center" />
         </VerticalStackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56" >
-                <Image Source="user_icon.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1" 
+                    HeightRequest="56" 
+                    WidthRequest="56" >
+                    <Image Source="user_icon.png"
+                           HeightRequest="30" 
+                           WidthRequest="30" />
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="User Name" Keyboard="Email" />
+            <Border HeightRequest="45"
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20,0,0,0" 
+                           VerticalOptions="Center" 
+                           Placeholder="User Name" 
+                           Keyboard="Email" />
             </Border>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56">
-                <Image Source="pwd_icon.png" HeightRequest="30" WidthRequest="30" />
-            </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Password" IsPassword="True" />
-            </Border>
+                     <Border ZIndex="1" 
+                             HeightRequest="56"
+                             WidthRequest="56">
+                            <Image Source="pwd_icon.png" 
+                                HeightRequest="30" 
+                                WidthRequest="30" />
+                     </Border>
+                     <Border HeightRequest="45" 
+                             Margin="-20,0,0,0" 
+                             Padding="0" 
+                             HorizontalOptions="FillAndExpand">
+                             <Entry Margin="20,0,0,0" 
+                                    VerticalOptions="Center" 
+                                    Placeholder="Password" 
+                                    IsPassword="True" />
+                     </Border>
         </StackLayout>
 
-        <Button Text="Log In" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" />
+        <Button Text="Log In" 
+                WidthRequest="100" 
+                CornerRadius="20" 
+                HorizontalOptions="Center" />
 
-        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-            <Label Text="Don't have account?" TextColor="Gray" VerticalOptions="Center"/>
-            <Button Text="Register here" TextColor="#50b3f2" BackgroundColor="Transparent" Command="{Binding GoToRegisterPageCommand}"/>
+        <StackLayout Orientation="Horizontal" 
+                     Spacing="5" 
+                     HorizontalOptions="Center">
+            <Label Text="Don't have account?" 
+                            TextColor="Gray" 
+                            VerticalOptions="Center"/>
+            <Button Text="Register here" 
+                            TextColor="#50b3f2" 
+                            BackgroundColor="Transparent" 
+                            Command="{Binding GoToRegisterPageCommand}"/>
         </StackLayout>
-       
     </VerticalStackLayout>
 </ContentPage>

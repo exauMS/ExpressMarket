@@ -5,7 +5,7 @@ namespace ExpressMarket.View;
 
 public partial class RegisterViewModel : ObservableObject
 {
-    [ObservableProperty]
+  /*  [ObservableProperty]
     string userName;
     [ObservableProperty]
     string email;
@@ -15,7 +15,7 @@ public partial class RegisterViewModel : ObservableObject
     [RelayCommand]
     async Task AddUser()
     {
-        User user = new User();
+       /* User user = new User();
         user.UserName = UserName;
         user.Email = Email;
         user.Password = Password;
@@ -31,5 +31,5 @@ public partial class RegisterViewModel : ObservableObject
         await Shell.Current.GoToAsync("..");
         
        // Task Back() => Shell.Current.GoToAsync(nameof(LoginPage));
-    }
+    }*/
 }

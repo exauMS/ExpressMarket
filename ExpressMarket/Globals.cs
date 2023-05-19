@@ -5,8 +5,9 @@ global using ExpressMarket.View;
 global using System.Collections.ObjectModel;
 global using ExpressMarket.Model;
 global using ExpressMarket.Services;
-
+global using System.Data;
 internal class GlobalsTools
 {
-    public static List<Article> articles = new List<Article>();
+    public static List<Article> articles = new();
+    public static DataSet UserSet = new();
 }

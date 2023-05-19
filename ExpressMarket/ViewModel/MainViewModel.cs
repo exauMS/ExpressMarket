@@ -4,8 +4,8 @@ public partial class MainViewModel : ObservableObject
 {
 	public MainViewModel()
 	{
-		
-	}
+        CreateUserDataTables MyUserTables = new();
+    }
 
     [RelayCommand]
     async Task GoToDashBoardPage()

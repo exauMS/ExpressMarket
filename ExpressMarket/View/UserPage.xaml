@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpressMarket.View.UserPage"
+             xmlns:model="clr-namespace:ExpressMarket.Model"
+             xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
+             x:DataType="viewmodel:UserViewModel"
+             Title="UserPage">
+    <VerticalStackLayout x:Name ="UserFromDB">
+        <Button Text="Read access Types" 
+                WidthRequest ="150" 
+                HeightRequest ="100" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.ReadAccessCommand}"
+                IsEnabled="{Binding IsNotBusy}"/>
+
+        <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillUsersCommand}"
+                IsEnabled="{Binding IsNotBusy}"/>
+
+        <CollectionView ItemsSource="{Binding ShownList}" SelectionMode="None" Background="white" Grid.Row="3" x:Name="UserInfo">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:User">
+                    <Grid Padding="10" ColumnSpacing="20" RowDefinitions="*" HeightRequest="125">
+                        <Border Grid.Column="8" Grid.ColumnSpan="3"
+                                    StrokeThickness="4"
+                                    StrokeShape="RoundRectangle 10,10,10,10">
+                            <HorizontalStackLayout BackgroundColor="Black">
+                                <Label Text="{Binding User_ID}" />
+                                <Label Text="{Binding UserName}" />
+                                <Label Text="{Binding UserPassword}" />
+                                <Label Text="{Binding UserAccessType}" />
+                            </HorizontalStackLayout>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
