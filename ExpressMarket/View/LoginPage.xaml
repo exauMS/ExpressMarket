@@ -62,7 +62,8 @@
         <Button Text="Log In" 
                 WidthRequest="100" 
                 CornerRadius="20" 
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" 
+                Command="{Binding GoToLoginCommand}"/>
 
         <StackLayout Orientation="Horizontal" 
                      Spacing="5" 

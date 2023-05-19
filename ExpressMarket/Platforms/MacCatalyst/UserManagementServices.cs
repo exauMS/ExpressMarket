@@ -12,4 +12,5 @@ public partial class UserManagementServices
     public partial void ConfigTools()
     {
     }
+    public async Task ReadAccessTable() { }
 }

@@ -10,9 +10,7 @@ public partial class UserViewModel : BaseViewModel
 		this.MyDBServices = MyDBServices;
 
 		MyDBServices.ConfigTools();
-
     }
-
     public ObservableCollection<User> ShownList { get; set; } = new();
 
 
@@ -22,9 +20,13 @@ public partial class UserViewModel : BaseViewModel
     [RelayCommand]
 	async Task ReadAccess()
 	{
+		
 		try
 		{
 			await MyDBServices.ReadAccessTable();
+			await MyDBServices.ReadUserTable();
+
+		
 		}
 		catch (Exception ex)
 		{
