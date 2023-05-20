@@ -7,9 +7,9 @@ public partial class LoginViewModel : BaseViewModel
     public ObservableCollection<User> ShownList { get; set; } = new();
 
     [ObservableProperty]
-    string username;
+    string userNameLogin;
     [ObservableProperty]
-    string password;
+    string userPasswordLogin;
 
     Boolean isFind =false;
 
@@ -27,11 +27,11 @@ public partial class LoginViewModel : BaseViewModel
 
 
 
-        foreach (var item in GlobalsTools.UserListFromDB) // lecture de la liste des User de la DB
+        foreach (var item in ShownList) // lecture de la liste des User de la DB
         {
-            if (Username == item.UserName ) // Verification si le USER existe bien
+            if (UserNameLogin == item.UserName ) // Verification si le USER existe bien
             {
-                if (Password == item.UserPassword) // Si son mot de passe est le bon
+                if (UserPasswordLogin == item.UserPassword) // Si son mot de passe est le bon
                 {
                     try
                     {
@@ -44,14 +44,14 @@ public partial class LoginViewModel : BaseViewModel
                     }
                 }
             }
-            break;
+
         }
 
         if (isFind==false)
         { 
             await Shell.Current.DisplayAlert("Erreur de connexion","Votre nom d'utilisateur et/ou votre mot de passe est incorrecte","OK");
-            Username = "";
-            Password = "";
+            UserNameLogin = "";
+            UserPasswordLogin = "";
         }
     }
 
@@ -63,7 +63,6 @@ public partial class LoginViewModel : BaseViewModel
         {
             await MyUserServices.ReadAccessTable();
             await MyUserServices.ReadUserTable();
-
 
         }
         catch (Exception ex)
@@ -77,7 +76,7 @@ public partial class LoginViewModel : BaseViewModel
     {
         IsBusy = true;
         List<User> MyUserList = new();
-
+        ShownList.Clear();
         try
         {
 

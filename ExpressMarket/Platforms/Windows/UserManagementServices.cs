@@ -1,4 +1,5 @@
-﻿using System.Data.OleDb;
+﻿using System.Data.Common;
+using System.Data.OleDb;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
@@ -20,7 +21,7 @@ public partial class UserManagementServices
         string Insert_CommandText = "INSERT INTO DB_Users (UserName,UserPassword,UserAccessType) VALUES (@UserName,@UserPassword,@UserAccessType);";
         string Delete_CommandText = "DELETE FROM DB_Users WHERE UserName = @UserName;";
         string Select_CommandText = "SELECT * FROM DB_Users ORDER BY User_ID;";
-        string Update_CommandText = "UPDATE DB_Users SET UserPassword = @UserPassword, UserAccessType = @UserAccessType WHERE UserName=@UserName;";
+        string Update_CommandText = "UPDATE DB_Users SET UserName = @UserName, UserPassword = @UserPassword, UserAccessType = @UserAccessType WHERE UserName=@UserName;";
 
 
         //3 Insertion des CommandText dans les commandes de OleDB
@@ -82,7 +83,7 @@ public partial class UserManagementServices
         OleDbCommand SelectCommand = new OleDbCommand("SELECT * FROM DB_Users ORDER BY User_ID;", Connexion);
         try
         {
-            GlobalsTools.UserSet.Tables["Users"].Clear();
+            //GlobalsTools.UserSet.Tables["Users"].Clear();
             Connexion.Open();
             OleDbDataReader Reader = SelectCommand.ExecuteReader();
             if (Reader.HasRows)
@@ -98,7 +99,7 @@ public partial class UserManagementServices
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+            await Shell.Current.DisplayAlert("Read database", ex.Message, "OK");
         }
         finally
         {
@@ -118,7 +119,7 @@ public partial class UserManagementServices
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+            await Shell.Current.DisplayAlert("Fill database", ex.Message, "OK");
         }
         finally
         {
@@ -126,7 +127,7 @@ public partial class UserManagementServices
         }
     }
 
-    public async Task InsertUser(string name, string password, Int32 access)
+    public async Task InsertUser(string name, string password, Int16 access)
     {
         try
         {
@@ -145,36 +146,14 @@ public partial class UserManagementServices
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+            await Shell.Current.DisplayAlert("Insert database", ex.Message, "OK");
         }
         finally
         {
             Connexion.Close();
         }
     }
-
-  /*  public async Task InsertUser(string name, string password, Int32 access)
-    {
-        try
-        {
-            Connexion.Open();
-            UsersAdapter.InsertCommand.Parameters[0].Value = name;
-            UsersAdapter.InsertCommand.Parameters[1].Value = password;
-            UsersAdapter.InsertCommand.Parameters[2].Value = access;
-            if (UsersAdapter.InsertCommand.ExecuteNonQuery() != 0) await Shell.Current.DisplayAlert("Database", "User successfully inserted", "OK");
-            else await Shell.Current.DisplayAlert("Database", "User not inserted", "OK");
-
-        }
-        catch (Exception ex)
-        {
-            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
-        }
-        finally
-        {
-            Connexion.Close();
-        }
-    }*/
-
+    
     public async Task DeleteUser(string name)
     {
 
@@ -197,20 +176,30 @@ public partial class UserManagementServices
         }
     }
 
-    public async Task UpdateUser(string name, string password, Int32 access)
+    public async Task UpdateUser(string name, string password, Int16 access)
     {
         try
         {
             Connexion.Open();
 
+            /*  UsersAdapter.UpdateCommand.Parameters[0].Value = name;
+              UsersAdapter.UpdateCommand.Parameters[1].Value = password;
+              UsersAdapter.UpdateCommand.Parameters[2].Value = access;*/
             UsersAdapter.Update(GlobalsTools.UserSet.Tables["Users"]);
-            if (UsersAdapter.UpdateCommand.ExecuteNonQuery() != 0) await Shell.Current.DisplayAlert("Database", "User successfully updated", "OK");
-            else await Shell.Current.DisplayAlert("Database", "Use not updated", "OK");
 
+        
+           if (UsersAdapter.UpdateCommand.ExecuteNonQuery() != 0) { 
+                await Shell.Current.DisplayAlert("Database", "User successfully updated", "OK"); 
+            }
+            else {
+                await Shell.Current.DisplayAlert("Database", "Use not updated", "OK");
+                
+            }
         }
-        catch (Exception ex)
+        catch (DbException ex)
         {
-            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+
+            await Shell.Current.DisplayAlert("Database",ex.Message , "OK");
         }
         finally
         {

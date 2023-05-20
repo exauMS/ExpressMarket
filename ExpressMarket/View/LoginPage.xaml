@@ -37,7 +37,7 @@
                            VerticalOptions="Center" 
                            Placeholder="User Name"
                            Keyboard="Email"
-                           Text="{Binding Username}"/>
+                           Text="{Binding UserNameLogin}"/>
             </Border>
         </StackLayout>
 
@@ -57,7 +57,7 @@
                                     VerticalOptions="Center" 
                                     Placeholder="Password" 
                                     IsPassword="True"
-                                     Text="{Binding Password}"/>
+                                     Text="{Binding UserPasswordLogin}"/>
                      </Border>
         </StackLayout>
 

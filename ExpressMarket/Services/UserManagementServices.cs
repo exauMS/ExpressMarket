@@ -31,30 +31,35 @@ public class CreateUserDataTables
 
         //UserTable
         UserTable.TableName = "Users";
+
         User_ID.AutoIncrement = true;
         User_ID.Unique = true;
         UserTable.Columns.Add(User_ID);
 
         UserName.Unique = true;
         UserTable.Columns.Add(UserName);
+
         UserTable.Columns.Add(UserPassword);
+
         UserTable.Columns.Add(AccessType);
 
-
         //AccessTable
+
         AccessTable.TableName = "Access";
 
         Access_ID.AutoIncrement = true;
         Access_ID.Unique = true;
-       
         AccessTable.Columns.Add(Access_ID);
 
         AccessName.Unique = true;
         AccessTable.Columns.Add(AccessName);
 
         AccessTable.Columns.Add(CreateObject);
+
         AccessTable.Columns.Add(DestroyObject);
+
         AccessTable.Columns.Add(ModifyObject);
+
         AccessTable.Columns.Add(ChangeUserRights);
 
         //Integrer nos tables au UserSet 
@@ -72,5 +77,3 @@ public class CreateUserDataTables
         GlobalsTools.UserSet.Tables["Users"].ParentRelations.Add(relation);
     }
 }
-
-

@@ -2,9 +2,13 @@ namespace ExpressMarket.ViewModel;
 
 public partial class DetailsViewModel : ContentPage
 {
+
+
     public ObservableCollection<Article> Fruits { get; set; } = new ObservableCollection<Article>();
     public ObservableCollection<Article> Vegetables { get; set; } = new ObservableCollection<Article>();
     public ObservableCollection<Article> Dairies { get; set; } = new ObservableCollection<Article>();
+
+ 
 
     public DetailsViewModel()
 	{

@@ -21,6 +21,11 @@
                          WidthRequest="130" 
                          HeightRequest="40" 
                          Command="{Binding GoToDetailsPageCommand}"/>
+            <ImageButton Source="user_icon.png"
+                         WidthRequest="100" 
+                         HeightRequest="40" 
+                         Command="{Binding GoToAdminPageCommand}"/>
+
         </HorizontalStackLayout>
         <Grid RowDefinitions="60,150,60,150,60,150" 
               ColumnDefinitions="*">

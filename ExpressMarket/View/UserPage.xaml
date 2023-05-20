@@ -7,14 +7,6 @@
              x:DataType="viewmodel:UserViewModel"
              Title="UserPage">
     <VerticalStackLayout x:Name ="UserFromDB">
-        <Button Text="Read access Types" 
-                WidthRequest ="150" 
-                HeightRequest ="100" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.ReadAccessCommand}"
-                IsEnabled="{Binding IsNotBusy}"/>
-
-
-
-
         <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillUsersCommand}"
                 IsEnabled="{Binding IsNotBusy}"/>
 
@@ -25,8 +17,13 @@
                         <Border Grid.Column="8" Grid.ColumnSpan="3"
                                     StrokeThickness="4"
                                     StrokeShape="RoundRectangle 10,10,10,10">
-                            <HorizontalStackLayout BackgroundColor="Black">
-                                <Label Text="{Binding User_ID}" />
+                            <Border.GestureRecognizers>
+
+                                <TapGestureRecognizer CommandParameter ="{Binding .}"
+                                                       Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.GoToUpdateUserPageCommand}"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout BackgroundColor="white">
+                                <Label Text="{Binding User_ID}"  />
                                 <Label Text="{Binding UserName}" />
                                 <Label Text="{Binding UserPassword}" />
                                 <Label Text="{Binding UserAccessType}" />
@@ -37,4 +34,5 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
+
 </ContentPage>

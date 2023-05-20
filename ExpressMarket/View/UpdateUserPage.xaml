@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
+             x:Class="ExpressMarket.View.UpdateUserPage"
+             x:DataType="viewmodel:UpdateUserViewModel"
+             Title="UpdateUserPage">
+
+
+    <VerticalStackLayout x:Name="User" >
+        <VerticalStackLayout Spacing="10" >
+
+            <Label Text="Modifier un Utilisateur"
+                   FontSize="Large"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Frame CornerRadius="5"
+                   BorderColor="Gray"
+                   Padding="5"
+                   Margin="0,20,0,0">
+                <Entry Placeholder="Enter username"
+                       Text="{Binding User.UserName}"/>
+            </Frame>
+
+            <Frame CornerRadius="5"
+                   BorderColor="Gray"
+                   Padding="5"
+                   Margin="0,10,0,0">
+                <Entry Placeholder="Enter password"
+                       Text="{Binding User.UserPassword}"/>
+            </Frame>
+
+            <Frame CornerRadius="5"
+                   BorderColor="Gray"
+                   Padding="5"
+                   Margin="0,10,0,0">
+                <Entry Placeholder="Enter access"
+                       Text="{Binding User.UserAccessType}"/>
+            </Frame>
+
+            <!--<Label Text="{Binding User.UserName, StringFormat='Prénom: {0}'}"
+                       TextColor="Black" FontSize="Medium" HorizontalOptions="Center"/>
+                <Label Text="{Binding User.UserPassword, StringFormat='Age: {0}'}"
+                       TextColor="Black" FontSize="Medium" HorizontalOptions="Center"/>
+                <Label Text="{Binding User.UserAccessType, StringFormat='Poste: {0}'}"
+                       TextColor="Black" FontSize="Medium" HorizontalOptions="Center"/>-->
+
+
+        </VerticalStackLayout>
+
+        <Button Text="Modifier"
+                    Margin="0, 20, 0, 0"
+                    Command ="{Binding ModifyUserCommand}"
+                    Background="Green"
+                    TextColor="White"
+                    HeightRequest="40"
+                    WidthRequest="100"/>
+
+        <!--<Button Text="Supprimer"
+                    Margin="0, 10, 0, 0"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:JoueurViewModel}}, Path=SupprimerJoueurCommand}"
+                    CommandParameter="{Binding Joueur}"
+                    IsVisible="{Binding DroitSupprimer}"
+                    Background="Red"
+                    TextColor="White"
+                    HeightRequest="40"
+                    WidthRequest="100"
+                    />-->
+    </VerticalStackLayout>
+
+
+</ContentPage>

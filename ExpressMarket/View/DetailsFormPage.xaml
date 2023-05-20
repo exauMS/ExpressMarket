@@ -90,14 +90,16 @@
                     CornerRadius="20" 
                     HorizontalOptions="Center" 
                     Command="{Binding UpdateCommand}"
-                    CommandParameter="{Binding Data}"/>
+                    CommandParameter="{Binding Data}"
+                    IsVisible="{Binding RightUpdateAccess}"/>
             <Button Text="Delete" 
                     WidthRequest="100"
                     CornerRadius="20" 
                     HorizontalOptions="Center"
                     BackgroundColor="Red" 
                     Command="{Binding DeleteCommand}" 
-                    CommandParameter="{Binding Data}"/>
+                    CommandParameter="{Binding Data}"
+                    IsVisible="{Binding RightDestroyAccess}"/>
         </HorizontalStackLayout>
         
     </VerticalStackLayout>

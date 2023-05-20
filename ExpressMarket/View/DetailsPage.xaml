@@ -55,7 +55,8 @@
                                                      HeightRequest="30"
                                                      Grid.Column="2" 
                                                      Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" 
-                                                     CommandParameter="{Binding .}"/>
+                                                     CommandParameter="{Binding .}"
+                                                    />
                                     </Grid>
                                 </Grid>
                         </Border>

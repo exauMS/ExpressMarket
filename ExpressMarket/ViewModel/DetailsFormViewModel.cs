@@ -9,17 +9,46 @@ public partial class DetailsFormViewModel : ObservableObject
     [ObservableProperty]
     Article data;
 
+    [ObservableProperty]
+    Boolean rightUpdateAccess = false;
+
+    [ObservableProperty]
+    Boolean rightDestroyAccess = false;
+
     public DetailsFormViewModel()
 	{
-        
+        RightAccess();
+    }
+    //RightAccess();
+    public void RightAccess()
+    {
+
+        foreach (var item in GlobalsTools.UserListFromDB)
+        {
+            if (item.UserAccessType == 1)
+            {
+                RightUpdateAccess = true;
+                RightDestroyAccess = true;
+                break;
+            }
+            else if (item.UserAccessType == 2)
+            {
+                RightDestroyAccess = true;
+                break;
+            }
+         
+            
+        }
     }
 
     [RelayCommand]
-     async void Delete(Article article)
+     async void Delete()
      {
-        if (GlobalsTools.articles.Contains(article))
+
+
+        if (GlobalsTools.articles.Contains(Data))
         {
-            GlobalsTools.articles.Remove(article);
+            GlobalsTools.articles.Remove(Data);
             string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "QualityServer", "DATA.json");
             // Récupère le contenu JSON existant du fichier
             string jsonContent = File.ReadAllText(filePath);
@@ -37,6 +66,7 @@ public partial class DetailsFormViewModel : ObservableObject
         }
 
           await Shell.Current.DisplayAlert("Successfully Deleted!", "You can go back.", "OK");
+
 
      }
 

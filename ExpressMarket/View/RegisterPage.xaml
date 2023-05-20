@@ -39,7 +39,7 @@
                 <Entry Margin="20,0,0,0" 
                        VerticalOptions="Center"
                        Placeholder="User Name" 
-                       Text="{Binding UserName}"/>
+                       Text="{Binding UserNameRegister}"/>
             </Border>
         </StackLayout>
         
@@ -59,7 +59,7 @@
                        VerticalOptions="Center" 
                        Placeholder="Password" 
                        IsPassword="True" 
-                       Text="{Binding Password}"/>
+                       Text="{Binding PasswordRegister}"/>
             </Border>
             
         </StackLayout>
@@ -79,7 +79,7 @@
                 <Entry Margin="20,0,0,0" 
                        VerticalOptions="Center"
                        Placeholder="User access" 
-                       Text="{Binding UserAccess}"/>
+                       Text="{Binding UserAccessRegister}"/>
             </Border>
         </StackLayout>
 

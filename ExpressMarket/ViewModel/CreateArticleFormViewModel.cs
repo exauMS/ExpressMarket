@@ -40,20 +40,20 @@ public partial class CreateArticleFormViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async void Create(Article article)
+    async void Create()
     {
-        if (string.IsNullOrWhiteSpace(article.Creator) || string.IsNullOrWhiteSpace(article.Type)
-            || string.IsNullOrEmpty(article.Creator) || string.IsNullOrEmpty(article.Type)
-            || string.IsNullOrWhiteSpace(article.Name) || string.IsNullOrWhiteSpace(article.Code)
-            || string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Code)
-            || string.IsNullOrWhiteSpace(article.ImageUrl) || string.IsNullOrEmpty(article.ImageUrl))
+        if (string.IsNullOrWhiteSpace(Product.Creator) || string.IsNullOrWhiteSpace(Product.Type)
+            || string.IsNullOrEmpty(Product.Creator) || string.IsNullOrEmpty(Product.Type)
+            || string.IsNullOrWhiteSpace(Product.Name) || string.IsNullOrWhiteSpace(Product.Code)
+            || string.IsNullOrEmpty(Product.Name) || string.IsNullOrEmpty(Product.Code)
+            || string.IsNullOrWhiteSpace(Product.ImageUrl) || string.IsNullOrEmpty(Product.ImageUrl))
         {
             await Shell.Current.DisplayAlert("Create error", "Entry are empty", "OK");
         }
         else
         {
 
-            GlobalsTools.articles.Add(article);
+            GlobalsTools.articles.Add(Product);
             await Shell.Current.DisplayAlert("Successfully Created!", "You can go back.", "OK");
 
             string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "QualityServer", "DATA.json");
@@ -61,7 +61,7 @@ public partial class CreateArticleFormViewModel : ObservableObject
 
             var articleJson = JsonConvert.DeserializeObject<List<Article>>(jsonContent);
 
-            articleJson.Add(article);
+            articleJson.Add(Product);
 
             string updatedJsonContent = JsonConvert.SerializeObject(articleJson);
             File.WriteAllText(filePath, updatedJsonContent);
