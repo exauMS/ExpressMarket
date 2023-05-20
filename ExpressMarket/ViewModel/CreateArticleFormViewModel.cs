@@ -1,4 +1,4 @@
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace ExpressMarket.ViewModel;
 
@@ -16,7 +16,7 @@ public partial class CreateArticleFormViewModel : ObservableObject
     [RelayCommand]
 	public async void AddImage()
 	{
-        PickOptions options= new PickOptions();
+        PickOptions options= new();
         try
         {
             var result = await FilePicker.Default.PickAsync(options);
@@ -29,12 +29,8 @@ public partial class CreateArticleFormViewModel : ObservableObject
                     var image = ImageSource.FromStream(() => stream);
                     Img = image;
                     Product.ImageUrl = "name.png";
-                   
-
                 }
             }
-
-           
         }
         catch (Exception ex)
         {
@@ -44,16 +40,32 @@ public partial class CreateArticleFormViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async void Create(Article article)
+    async void Create()
     {
-        if (string.IsNullOrWhiteSpace(article.Creator) || string.IsNullOrWhiteSpace(article.Type) 
-            || string.IsNullOrEmpty(article.Creator) || string.IsNullOrEmpty(article.Type)
-            || string.IsNullOrWhiteSpace(article.Name) || string.IsNullOrWhiteSpace(article.Code) 
-            || string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Code)
-            || string.IsNullOrWhiteSpace(article.ImageUrl) || string.IsNullOrEmpty(article.ImageUrl))
-        { return; }
+        if (string.IsNullOrWhiteSpace(Product.Creator) || string.IsNullOrWhiteSpace(Product.Type)
+            || string.IsNullOrEmpty(Product.Creator) || string.IsNullOrEmpty(Product.Type)
+            || string.IsNullOrWhiteSpace(Product.Name) || string.IsNullOrWhiteSpace(Product.Code)
+            || string.IsNullOrEmpty(Product.Name) || string.IsNullOrEmpty(Product.Code)
+            || string.IsNullOrWhiteSpace(Product.ImageUrl) || string.IsNullOrEmpty(Product.ImageUrl))
+        {
+            await Shell.Current.DisplayAlert("Create error", "Entry are empty", "OK");
+        }
+        else
+        {
 
-        GlobalsTools.articles.Add(article);
-        await Shell.Current.DisplayAlert("Successfully Created!", "You can go back.", "OK");
+            GlobalsTools.articles.Add(Product);
+            await Shell.Current.DisplayAlert("Successfully Created!", "You can go back.", "OK");
+
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "QualityServer", "DATA.json");
+            string jsonContent = File.ReadAllText(filePath);
+
+            var articleJson = JsonConvert.DeserializeObject<List<Article>>(jsonContent);
+
+            articleJson.Add(Product);
+
+            string updatedJsonContent = JsonConvert.SerializeObject(articleJson);
+            File.WriteAllText(filePath, updatedJsonContent);
+
+        }
     }
 }

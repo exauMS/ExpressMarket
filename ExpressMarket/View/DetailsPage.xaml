@@ -11,46 +11,54 @@
         <Grid RowDefinitions="60,150,60,150,60,150" 
               ColumnDefinitions="*">
             <!--Fruits-->
-            <Border Grid.Row="0" Margin="5" 
+            <Border Grid.Row="0" 
+                    Margin="5" 
                     BackgroundColor="LightBlue" 
                     HeightRequest="50" 
                     Padding="5">
                     <Label Text="Fruits" 
                            FontSize="30"/>
             </Border>
-            <CollectionView ItemsSource="{Binding Fruits}" Grid.Row="1" x:Name="Fruits">
+            <CollectionView ItemsSource="{Binding Fruits}" 
+                            Grid.Row="1" 
+                            x:Name="Fruits">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
-                        <Border 
-                           HorizontalOptions="CenterAndExpand"
-                           VerticalOptions="CenterAndExpand">
-                            <Grid RowDefinitions="*">
-                                <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
+                        <Border HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand">
+                                <Grid RowDefinitions="*">
+                                    <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
 
-                                    <StackLayout Grid.Column="0">
-                                        <Image Source="{Binding ImageUrl}"
-                                               HeightRequest="40"
-                                               WidthRequest="40"/>
-                                        <Label Text="{Binding Name}"
-                                               FontAttributes="Bold"
-                                               FontSize="15"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="Center" />
-                                    </StackLayout>
+                                        <StackLayout Grid.Column="0">
+                                            <Image Source="{Binding ImageUrl}"
+                                                       HeightRequest="40"
+                                                       WidthRequest="40"/>
+                                            <Label Text="{Binding Name}"
+                                                       FontAttributes="Bold"
+                                                       FontSize="15"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Center" />
+                                        </StackLayout>
 
-                                    <StackLayout Grid.Column="1">
+                                        <StackLayout Grid.Column="1">
 
-                                        <Label Text="{Binding Code}"
-                                               HorizontalOptions="Center" />
-                                        <Label Text="{Binding Creator}"
-                                               FontAttributes="Italic"
-                                               HorizontalOptions="Center"
-                                               MaxLines="5"
-                                               LineBreakMode="TailTruncation" />
-                                    </StackLayout>
-                                    <ImageButton Source="edit_pen.png" WidthRequest="30" HeightRequest="30" Grid.Column="2" Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" CommandParameter="{Binding .}"/>
+                                            <Label Text="{Binding Code}"
+                                                       HorizontalOptions="Center" />
+                                            <Label Text="{Binding Creator}"
+                                                       FontAttributes="Italic"
+                                                       HorizontalOptions="Center"
+                                                       MaxLines="5"
+                                                       LineBreakMode="TailTruncation" />
+                                        </StackLayout>
+                                        <ImageButton Source="edit_pen.png" 
+                                                     WidthRequest="30" 
+                                                     HeightRequest="30"
+                                                     Grid.Column="2" 
+                                                     Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" 
+                                                     CommandParameter="{Binding .}"
+                                                    />
+                                    </Grid>
                                 </Grid>
-                            </Grid>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -65,7 +73,9 @@
                            FontSize="30"/>
             </Border>
 
-            <CollectionView ItemsSource="{Binding Vegetables}" Grid.Row="3" x:Name="Vegetables">
+            <CollectionView ItemsSource="{Binding Vegetables}" 
+                            Grid.Row="3"
+                            x:Name="Vegetables">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                         <Border 
@@ -110,18 +120,26 @@
             </CollectionView>
 
             <!--Dairies-->
-            <Border Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
-                <Label Text="Dairies" FontSize="30"/>
+            <Border Grid.Row="4" 
+                    Margin="5" 
+                    BackgroundColor="LightBlue"
+                    HeightRequest="50" 
+                    Padding="5">
+                <Label Text="Dairies" 
+                       FontSize="30"/>
             </Border>
 
-            <CollectionView ItemsSource="{Binding Dairies}" Grid.Row="5" x:Name="Dairies">
+            <CollectionView ItemsSource="{Binding Dairies}" 
+                            Grid.Row="5" 
+                            x:Name="Dairies">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
                         <Border 
                            HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand">
                             <Grid RowDefinitions="*">
-                                <Grid RowDefinitions="60" ColumnDefinitions=".30*,.60*, .10*">
+                                <Grid RowDefinitions="60" 
+                                      ColumnDefinitions=".30*,.60*, .10*">
                                     <StackLayout Grid.Column="0">
                                         <Image Source="{Binding ImageUrl}"
                                                HeightRequest="40"

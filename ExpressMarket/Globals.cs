@@ -6,6 +6,8 @@ global using System.Collections.ObjectModel;
 global using ExpressMarket.Model;
 global using ExpressMarket.Services;
 global using System.Data;
+global using System.IO;
+
 internal class GlobalsTools
 {
     public static List<Article> articles = new();

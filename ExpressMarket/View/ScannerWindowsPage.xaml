@@ -2,23 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExpressMarket.View.ScannerWindowsPage"
-             
              Title="ScannerWindowsPage">
 
    
     <VerticalStackLayout x:Name="vStackLayout">
+        
         <ImageButton Source="add.png" 
                      HorizontalOptions="End" 
                      WidthRequest="60" 
                      HeightRequest="60" 
                      Command="{Binding GoToCreateArticleFormPageCommand}" 
                      x:Name="createArticleBtn"/>
+        
         <Border BackgroundColor="LightGreen" 
                 HeightRequest="500" 
                 WidthRequest="800">
+            
             <Grid RowDefinitions="100,100,100,100,100">
+                
                 <Image Source="{Binding ImageUrl}"
                        Grid.Row="0"/>
+                
                 <Label Text="{Binding Name}" 
                        FontSize="20" 
                        FontFamily="OpenSans-Semibold" 
@@ -32,6 +36,7 @@
                        TextColor="Green" HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        Grid.Row="2"/>
+                
                 <Label Text="{Binding Product.Code}" 
                        FontSize="20" 
                        FontFamily="OpenSans-Semibold" 
@@ -39,6 +44,7 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        Grid.Row="3"/>
+                
                 <Label Text="{Binding Product.Type}" 
                        FontSize="20" 
                        FontFamily="OpenSans-Semibold" 

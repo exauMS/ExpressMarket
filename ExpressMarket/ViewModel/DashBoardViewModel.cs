@@ -1,21 +1,25 @@
 namespace ExpressMarket.ViewModel;
 
-public partial class DashBoardViewModel : ContentPage
+public partial class DashBoardViewModel : ObservableObject
 {
     public ObservableCollection<Article> Fruits { get; set; } = new ObservableCollection<Article>();
     public ObservableCollection<Article> Vegetables { get; set; } = new ObservableCollection<Article>();
     public ObservableCollection<Article> Dairies { get; set; } = new ObservableCollection<Article>();
     ArticleService articleService;
-    bool jsonTreated=false;
-   
+    bool jsonTreated = false;
+
+
+    [ObservableProperty]
+    Boolean adminAccess;
+
     public DashBoardViewModel()
     {
-       
+
     }
     public DashBoardViewModel(ArticleService service)
     {
         articleService = service;
-       // CreateUserDataTables MyUserTables = new();
+        // CreateUserDataTables MyUserTables = new();
 
         //   GlobalsTools.UserSet.Tables["Users"].Columns["UserName"] = "Data";
     }
@@ -32,6 +36,13 @@ public partial class DashBoardViewModel : ContentPage
         await Shell.Current.GoToAsync(nameof(ScannerWindowsPage));
     }
 
+	
+    [RelayCommand]
+    async Task GoToAdminPage()
+    {
+        await Shell.Current.GoToAsync(nameof(UserPage));
+    }
+    
 
     [RelayCommand]
     async Task GetJson()
@@ -45,12 +56,9 @@ public partial class DashBoardViewModel : ContentPage
             catch (Exception ex)
             {
                 await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
-
-            }
-           
+            } 
             jsonTreated = true;
         }
-
         RefreshList();
     }
 
@@ -67,8 +75,6 @@ public partial class DashBoardViewModel : ContentPage
                 Vegetables.Add(item);
             else if (item.Type.Equals("Dairy"))
                 Dairies.Add(item);
-
         }
     }
-
 }

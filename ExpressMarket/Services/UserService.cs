@@ -9,7 +9,7 @@ namespace ExpressMarket.Services
 {
     internal class UserService
     {
-        private static SQLiteAsyncConnection db;
+       /* private static SQLiteAsyncConnection db;
         
         private static async Task Init()
         {
@@ -45,6 +45,6 @@ namespace ExpressMarket.Services
                        where u.UserName == userName
                        select u;
             return await user.FirstOrDefaultAsync();
-        }
+        }*/
     }
 }

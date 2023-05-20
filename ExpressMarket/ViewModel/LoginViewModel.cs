@@ -1,7 +1,3 @@
-
-
-using System.Data.OleDb;
-
 namespace ExpressMarket.ViewModel;
 
 public partial class LoginViewModel : BaseViewModel
@@ -11,18 +7,16 @@ public partial class LoginViewModel : BaseViewModel
     public ObservableCollection<User> ShownList { get; set; } = new();
 
     [ObservableProperty]
-    string username;
+    string userNameLogin;
     [ObservableProperty]
-    string password;
+    string userPasswordLogin;
 
     Boolean isFind =false;
 
 	public LoginViewModel(UserManagementServices MyUserServices)
 	{
         this.MyUserServices = MyUserServices;
-
         MyUserServices.ConfigTools();
-
     }
 
 	[RelayCommand]
@@ -33,48 +27,34 @@ public partial class LoginViewModel : BaseViewModel
 
 
 
-        foreach (var item in GlobalsTools.UserListFromDB)
+        foreach (var item in ShownList) // lecture de la liste des User de la DB
         {
-            if (Username == item.UserName )
+            if (UserNameLogin == item.UserName ) // Verification si le USER existe bien
             {
-               
-                if (Password == item.UserPassword)
+                if (UserPasswordLogin == item.UserPassword) // Si son mot de passe est le bon
                 {
-
                     try
                     {
-
-                        await Shell.Current.GoToAsync(nameof(DashBoardWindowsPage), true);
+                        await Shell.Current.GoToAsync(nameof(DashBoardWindowsPage), true); // Alors il peux naviguer dans le dashboard 
                         isFind = true;
                     }
                     catch (Exception ex)
                     {
-
                         await Shell.Current.DisplayAlert("Erreur de connexion", ex.Message, "OK");
-                        
                     }
-              
                 }
-             
             }
-            break;
+
         }
 
         if (isFind==false)
         { 
             await Shell.Current.DisplayAlert("Erreur de connexion","Votre nom d'utilisateur et/ou votre mot de passe est incorrecte","OK");
-            Username = "";
-            Password = "";
+            UserNameLogin = "";
+            UserPasswordLogin = "";
         }
-
-
-
     }
 
-
-
-
-    [RelayCommand]
     async Task ReadAccess()
     {
         GlobalsTools.UserSet.Tables["Users"].Clear();
@@ -84,7 +64,6 @@ public partial class LoginViewModel : BaseViewModel
             await MyUserServices.ReadAccessTable();
             await MyUserServices.ReadUserTable();
 
-
         }
         catch (Exception ex)
         {
@@ -93,13 +72,11 @@ public partial class LoginViewModel : BaseViewModel
     }
 
 
-
-    [RelayCommand]
     async void FillUsers()
     {
         IsBusy = true;
         List<User> MyUserList = new();
-
+        ShownList.Clear();
         try
         {
 
@@ -122,17 +99,14 @@ public partial class LoginViewModel : BaseViewModel
         {
             ShownList.Add(item);
         }
-        GlobalsTools.UserListFromDB = ShownList;
+        GlobalsTools.UserListFromDB = ShownList; //Intégration de notre liste de User dans notre liste global
         IsBusy = false;
 
     }
-
-
 
     [RelayCommand]
     async Task GoToRegisterPage()
 	{
         await Shell.Current.GoToAsync(nameof(RegisterPage));
     }
- 
 }

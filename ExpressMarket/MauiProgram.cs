@@ -25,6 +25,9 @@ public static class MauiProgram
         builder.Services.AddTransient<ScannerWindowsPage>();
         builder.Services.AddTransient<CreateArticleFormPage>();
         builder.Services.AddTransient<UserPage>();
+        builder.Services.AddTransient<UpdateUserPage>();
+
+
 
         //ViewModels
         builder.Services.AddSingleton<MainViewModel>();
@@ -36,6 +39,9 @@ public static class MauiProgram
         builder.Services.AddTransient<ScannerViewModel>();
         builder.Services.AddTransient<CreateArticleFormViewModel>();
         builder.Services.AddTransient<UserViewModel>();
+        builder.Services.AddTransient<UpdateUserViewModel>();
+
+
         //Services
         builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<ArticleService>();

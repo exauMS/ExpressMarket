@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace ExpressMarket.Services
 {
@@ -17,10 +12,12 @@ namespace ExpressMarket.Services
 
         public async Task<List<Article>> GetArticles()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync("DATA.json");
-            using var streamReader = new StreamReader(stream);
-            var contents = await streamReader.ReadToEndAsync();
-            articles = JsonSerializer.Deserialize<List<Article>>(contents);
+            string stream =  Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "QualityServer", "DATA.json");
+            using(var streamReader = new StreamReader(stream))
+            {
+                var contents = await streamReader.ReadToEndAsync();
+                articles = JsonSerializer.Deserialize<List<Article>>(contents);
+            }
 
             return articles;
         }

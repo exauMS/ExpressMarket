@@ -1,27 +1,35 @@
 namespace ExpressMarket.ViewModel;
 
-public partial class RegisterViewModel : BaseViewModel
+[QueryProperty(nameof(User), "User")]
+public partial class UpdateUserViewModel : BaseViewModel
 {
+
     UserManagementServices MyUserServices = new();
-
-    [ObservableProperty]
-    String userNameRegister;
-    [ObservableProperty]
-    Int16 userAccessRegister;
-    [ObservableProperty]
-    String passwordRegister;
-
-  
     public ObservableCollection<User> ShownList { get; set; } = new();
 
 
-    public RegisterViewModel(UserManagementServices myUserServices)
+    [ObservableProperty]
+    User user;
+
+    public UpdateUserViewModel(UserManagementServices MyUserServices)
     {
-       this.MyUserServices = myUserServices;
+        this.MyUserServices = MyUserServices;
         MyUserServices.ConfigTools();
     }
 
-    async Task ReadTables()
+    [RelayCommand]
+    async Task ModifyUser()
+    {
+        IsBusy = false;
+       
+        await MyUserServices.UpdateUser(User.UserName, User.UserPassword, User.UserAccessType);
+
+        await FillUsers();
+        IsBusy = true;
+
+    }
+
+    async Task ReadAccess()
     {
         GlobalsTools.UserSet.Tables["Users"].Clear();
         GlobalsTools.UserSet.Tables["Access"].Clear();
@@ -29,8 +37,7 @@ public partial class RegisterViewModel : BaseViewModel
         {
             await MyUserServices.ReadAccessTable();
             await MyUserServices.ReadUserTable();
-            
-     
+
         }
         catch (Exception ex)
         {
@@ -39,23 +46,11 @@ public partial class RegisterViewModel : BaseViewModel
     }
 
 
-
-    [RelayCommand]
-    async Task AddUser()
+    async Task FillUsers()
     {
-        await ReadTables();
-        FillUsers();
-        await MyUserServices.InsertUser(UserNameRegister, PasswordRegister, UserAccessRegister);
-        FillUsers();
-        await Shell.Current.GoToAsync(nameof(LoginPage));
-    }
-
-
-    async void FillUsers()
-    {
-        IsBusy = true;
+     
         List<User> MyUserList = new();
-        ShownList.Clear();
+    
         try
         {
 
@@ -70,25 +65,16 @@ public partial class RegisterViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Fill Register Database", ex.Message, "OK");
+            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
         }
+        ShownList.Clear();
 
-
-        foreach (var item in MyUserList)
+        foreach (User item in MyUserList)
         {
             ShownList.Add(item);
         }
         GlobalsTools.UserListFromDB = ShownList; //Intégration de notre liste de User dans notre liste global
-        IsBusy = false;
+       
 
     }
-
-
-    [RelayCommand]
-      async Task GoToLoginPage()
-      {
-          await Shell.Current.GoToAsync("..");
-
-         // Task Back() => Shell.Current.GoToAsync(nameof(LoginPage));
-      }
 }

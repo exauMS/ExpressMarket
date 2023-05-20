@@ -9,50 +9,78 @@
     <StackLayout>
 
         <HorizontalStackLayout HeightRequest="40">
-            <ImageButton Source="scanner.png" WidthRequest="130" HeightRequest="40" Command="{Binding GoToScannerPageCommand}"/>
-            <ImageButton Source="refresh.png" WidthRequest="130" HeightRequest="40" Command="{Binding GetJsonCommand}"/>
-            <ImageButton Source="details.png" WidthRequest="130" HeightRequest="40" Command="{Binding GoToDetailsPageCommand}"/>
+            <ImageButton Source="scanner.png" 
+                         WidthRequest="130" 
+                         HeightRequest="40" 
+                         Command="{Binding GoToScannerPageCommand}"/>
+            <ImageButton Source="refresh.png"
+                         WidthRequest="130" 
+                         HeightRequest="40" 
+                         Command="{Binding GetJsonCommand}"/>
+            <ImageButton Source="details.png"
+                         WidthRequest="130" 
+                         HeightRequest="40" 
+                         Command="{Binding GoToDetailsPageCommand}"/>
+            <ImageButton Source="user_icon.png"
+                         WidthRequest="100" 
+                         HeightRequest="40" 
+                         Command="{Binding GoToAdminPageCommand}"/>
+
         </HorizontalStackLayout>
-        <Grid RowDefinitions="60,150,60,150,60,150" ColumnDefinitions="*">
+        <Grid RowDefinitions="60,150,60,150,60,150" 
+              ColumnDefinitions="*">
             <!--Fruits-->
-            <Border Grid.Row="0" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
-                <Label Text="Fruits" FontSize="30"/>
+            <Border Grid.Row="0" 
+                    Margin="5" 
+                    BackgroundColor="LightBlue" 
+                    HeightRequest="50" 
+                    Padding="5">
+                <Label Text="Fruits" 
+                           FontSize="30"/>
             </Border>
 
-           
-                <CollectionView ItemsSource="{Binding Fruits}" Grid.Row="1" ItemsLayout="HorizontalList">
+
+            <CollectionView ItemsSource="{Binding Fruits}" 
+                            Grid.Row="1" 
+                            ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
-                            <StackLayout>
-                            <Border 
-                                Margin="20"
-                                HeightRequest="150"
-                                HorizontalOptions="Center"
-                                VerticalOptions="CenterAndExpand">
+                        <StackLayout>
+                            <Border Margin="20"
+                                    HeightRequest="150"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="CenterAndExpand">
                                 <StackLayout BackgroundColor="Transparent">
                                     <Label Text="{Binding Name}"
-                                           FontAttributes="Bold"
-                                           FontSize="18"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center" />
+                                               FontAttributes="Bold"
+                                               FontSize="18"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center" />
                                     <Image Source="{Binding ImageUrl}"
-                                           Aspect="AspectFill"
-                                           HeightRequest="80"
-                                           WidthRequest="80"
-                                           HorizontalOptions="Center"/>
+                                               Aspect="AspectFill"
+                                               HeightRequest="80"
+                                               WidthRequest="80"
+                                               HorizontalOptions="Center"/>
                                 </StackLayout>
                             </Border>
-                            </StackLayout>
-                        </DataTemplate>
+                        </StackLayout>
+                    </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-          
+
             <!--Vegetables-->
-            <Border Grid.Row="2" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
-                <Label Text="Vegetables" FontSize="30"/>
+            <Border Grid.Row="2" 
+                    Margin="5" 
+                    BackgroundColor="LightBlue" 
+                    HeightRequest="50" 
+                    Padding="5">
+                <Label Text="Vegetables" 
+                       FontSize="30"/>
             </Border>
 
-            <CollectionView ItemsSource="{Binding Vegetables}" Grid.Row="3" ItemsLayout="HorizontalList">
+            <CollectionView ItemsSource="{Binding Vegetables}" 
+                            Grid.Row="3" 
+                            ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Article">
                         <StackLayout>
@@ -81,11 +109,18 @@
             </CollectionView>
 
             <!--Dairies.-->
-            <Border Grid.Row="4" Margin="5" BackgroundColor="LightBlue" HeightRequest="50" Padding="5">
-                <Label Text="Dairies" FontSize="30"/>
+            <Border Grid.Row="4" 
+                    Margin="5" 
+                    BackgroundColor="LightBlue" 
+                    HeightRequest="50"
+                    Padding="5">
+                <Label Text="Dairies" 
+                       FontSize="30"/>
             </Border>
 
-            <CollectionView ItemsSource="{Binding Dairies}" Grid.Row="5" ItemsLayout="HorizontalList">
+            <CollectionView ItemsSource="{Binding Dairies}" 
+                            Grid.Row="5" 
+                            ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Article}">
                         <StackLayout>
@@ -105,7 +140,6 @@
                                            HeightRequest="80"
                                            WidthRequest="80"
                                            HorizontalOptions="Center" />
-
                                 </StackLayout>
                             </Border>
                         </StackLayout>
@@ -113,6 +147,5 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
-
     </StackLayout>
 </ContentPage>
