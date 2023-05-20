@@ -45,12 +45,9 @@ public partial class DashBoardViewModel : ContentPage
             catch (Exception ex)
             {
                 await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
-
-            }
-           
+            } 
             jsonTreated = true;
         }
-
         RefreshList();
     }
 
@@ -67,8 +64,6 @@ public partial class DashBoardViewModel : ContentPage
                 Vegetables.Add(item);
             else if (item.Type.Equals("Dairy"))
                 Dairies.Add(item);
-
         }
     }
-
 }

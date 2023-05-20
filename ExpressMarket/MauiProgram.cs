@@ -36,6 +36,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ScannerViewModel>();
         builder.Services.AddTransient<CreateArticleFormViewModel>();
         builder.Services.AddTransient<UserViewModel>();
+
         //Services
         builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<ArticleService>();

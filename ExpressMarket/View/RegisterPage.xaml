@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
+             x:DataType="viewmodel:RegisterViewModel"
              x:Class="ExpressMarket.View.RegisterPage"
+          
              Title="RegisterPage">
 
     <VerticalStackLayout 
@@ -9,44 +12,94 @@
             Padding="30,0" 
             VerticalOptions="Center">
 
-        <Image Source="logo.png" HeightRequest="150" WidthRequest="150" />
+        <Image Source="logo.png" 
+               HeightRequest="150"
+               WidthRequest="150" />
 
         <VerticalStackLayout Spacing="5">
-            <Label Text="Register Now" FontSize="30" TextColor="Green" HorizontalTextAlignment="Center" />
+            <Label Text="Register Now" 
+                   FontSize="30" 
+                   TextColor="Green" 
+                   HorizontalTextAlignment="Center" />
         </VerticalStackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1"  HeightRequest="56" WidthRequest="56" >
-                <Image Source="user_icon.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1"  
+                    HeightRequest="56" 
+                    WidthRequest="56" >
+                <Image Source="user_icon.png" 
+                       HeightRequest="30" 
+                       WidthRequest="30" />
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="User Name" Text="{Binding UserName}"/>
+            
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                <Entry Margin="20,0,0,0" 
+                       VerticalOptions="Center"
+                       Placeholder="User Name" 
+                       Text="{Binding UserName}"/>
             </Border>
         </StackLayout>
-
+        
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56" >
-                <Image Source="email_icon.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1" 
+                    HeightRequest="56"
+                    WidthRequest="56" >
+                <Image Source="pwd_icon.png" 
+                       HeightRequest="30" 
+                       WidthRequest="30" />
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                <Entry Margin="20,0,0,0" 
+                       VerticalOptions="Center" 
+                       Placeholder="Password" 
+                       IsPassword="True" 
+                       Text="{Binding Password}"/>
             </Border>
+            
         </StackLayout>
-
         <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1" HeightRequest="56" WidthRequest="56" >
-                <Image Source="pwd_icon.png" HeightRequest="30" WidthRequest="30" />
+            <Border ZIndex="1"  
+                    HeightRequest="56" 
+                    WidthRequest="56" >
+                <Image Source="user_icon.png" 
+                       HeightRequest="30" 
+                       WidthRequest="30" />
             </Border>
-            <Border HeightRequest="45" Margin="-20,0,0,0" Padding="0" HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
+
+            <Border HeightRequest="45" 
+                    Margin="-20,0,0,0" 
+                    Padding="0" 
+                    HorizontalOptions="FillAndExpand">
+                <Entry Margin="20,0,0,0" 
+                       VerticalOptions="Center"
+                       Placeholder="User access" 
+                       Text="{Binding UserAccess}"/>
             </Border>
         </StackLayout>
 
-        <Button Text="Register" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" Command="{Binding AddUserCommand}"/>
 
-        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-            <Label Text="Already registered?" TextColor="Gray" VerticalOptions="Center"/>
-            <Button Text="Log In" TextColor="#50b3f2" BackgroundColor="Transparent" Command="{Binding GoToLoginPageCommand}"/>
+        <Button Text="Register"
+                WidthRequest="100" 
+                CornerRadius="20" 
+                HorizontalOptions="Center"
+                Command="{Binding AddUserCommand}"/>
+
+        <StackLayout Orientation="Horizontal" 
+                     Spacing="5" 
+                     HorizontalOptions="Center">
+            <Label Text="Already registered?" 
+                   TextColor="Gray" 
+                   VerticalOptions="Center"/>
+            <Button Text="Log In" 
+                    TextColor="#50b3f2" 
+                    BackgroundColor="Transparent"
+                    Command="{Binding GoToLoginPageCommand}"/>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

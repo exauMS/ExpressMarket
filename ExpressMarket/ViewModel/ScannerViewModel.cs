@@ -11,8 +11,6 @@ public partial class ScannerViewModel : ObservableObject
     string imageUrl="scanner.png",name="Waiting For The Scan...";
     
 
-
-
     public  ScannerViewModel()
 	{
         

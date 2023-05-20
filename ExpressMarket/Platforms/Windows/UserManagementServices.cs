@@ -16,8 +16,8 @@ public partial class UserManagementServices
                                       + "Data Source=" + Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "QualityServer", "UserAccounts.accdb")
                                       + ";Persist Security Info=false";
 
-        //2 Etablir les commandes 
-        string Insert_CommandText = "INSERT INTO DB_Users(UserName,UserPassword,UserAccessType) VALUES (@UserName,@UserPassword,@UserAccessType);";
+        //2 Etablir les commandes prédéfinis
+        string Insert_CommandText = "INSERT INTO DB_Users (UserName,UserPassword,UserAccessType) VALUES (@UserName,@UserPassword,@UserAccessType);";
         string Delete_CommandText = "DELETE FROM DB_Users WHERE UserName = @UserName;";
         string Select_CommandText = "SELECT * FROM DB_Users ORDER BY User_ID;";
         string Update_CommandText = "UPDATE DB_Users SET UserPassword = @UserPassword, UserAccessType = @UserAccessType WHERE UserName=@UserName;";
@@ -53,14 +53,12 @@ public partial class UserManagementServices
         OleDbCommand SelectCommand = new OleDbCommand("SELECT * FROM DB_Access ORDER BY Access_ID;", Connexion);
         try
         {
-            GlobalsTools.UserSet.Tables["Access"].Clear();
+            GlobalsTools.UserSet.Tables["Access"].Clear(); // Clear pour éviter le double clique error
             Connexion.Open();
-            OleDbDataReader Reader = SelectCommand.ExecuteReader();
+            OleDbDataReader Reader = SelectCommand.ExecuteReader(); // on lis la commande SELECT executé 
             if (Reader.HasRows)
             {
-
-              
-                while (Reader.Read())
+                while (Reader.Read())// Lecture de chaques colonne de la table Access
                 {
                     GlobalsTools.UserSet.Tables["Access"].Rows.Add(new object[] { Reader[0], Reader[1], Reader[2], Reader[3], Reader[4], Reader[5]});
                 }
@@ -91,7 +89,7 @@ public partial class UserManagementServices
             {
 
 
-                while (Reader.Read())
+                while (Reader.Read()) // Lecture de chaques colonne de la table Users
                 {
                     GlobalsTools.UserSet.Tables["Users"].Rows.Add(new object[] { Reader[0], Reader[1], Reader[2], Reader[3]});
                 }
@@ -130,17 +128,20 @@ public partial class UserManagementServices
 
     public async Task InsertUser(string name, string password, Int32 access)
     {
-
-
         try
         {
             Connexion.Open();
             UsersAdapter.InsertCommand.Parameters[0].Value = name;
             UsersAdapter.InsertCommand.Parameters[1].Value = password;
             UsersAdapter.InsertCommand.Parameters[2].Value = access;
-            if (UsersAdapter.InsertCommand.ExecuteNonQuery() != 0) await Shell.Current.DisplayAlert("Database", "User successfully inserted", "OK");
-            else await Shell.Current.DisplayAlert("Database", "Use not inserted", "OK");
-
+            if (UsersAdapter.InsertCommand.ExecuteNonQuery() != 0 )
+            {
+                await Shell.Current.DisplayAlert("Database", "User successfully inserted", "OK");
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Database", "User not inserted", "OK");
+            }
         }
         catch (Exception ex)
         {
@@ -152,9 +153,30 @@ public partial class UserManagementServices
         }
     }
 
+  /*  public async Task InsertUser(string name, string password, Int32 access)
+    {
+        try
+        {
+            Connexion.Open();
+            UsersAdapter.InsertCommand.Parameters[0].Value = name;
+            UsersAdapter.InsertCommand.Parameters[1].Value = password;
+            UsersAdapter.InsertCommand.Parameters[2].Value = access;
+            if (UsersAdapter.InsertCommand.ExecuteNonQuery() != 0) await Shell.Current.DisplayAlert("Database", "User successfully inserted", "OK");
+            else await Shell.Current.DisplayAlert("Database", "User not inserted", "OK");
+
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+        }
+        finally
+        {
+            Connexion.Close();
+        }
+    }*/
+
     public async Task DeleteUser(string name)
     {
-
 
         try
         {

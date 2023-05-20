@@ -11,7 +11,6 @@ public partial class DetailsViewModel : ContentPage
         RefreshList();
     }
 
-
     [RelayCommand]
     async Task GoToDetailsFormPage(Article data)
     {
@@ -38,7 +37,6 @@ public partial class DetailsViewModel : ContentPage
                 {"ArticleFromDetails", data }
 
             });
-
     }
 
     public void RefreshList()

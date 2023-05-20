@@ -1,7 +1,3 @@
-
-
-using System.Data.OleDb;
-
 namespace ExpressMarket.ViewModel;
 
 public partial class LoginViewModel : BaseViewModel
@@ -20,9 +16,7 @@ public partial class LoginViewModel : BaseViewModel
 	public LoginViewModel(UserManagementServices MyUserServices)
 	{
         this.MyUserServices = MyUserServices;
-
         MyUserServices.ConfigTools();
-
     }
 
 	[RelayCommand]
@@ -33,29 +27,22 @@ public partial class LoginViewModel : BaseViewModel
 
 
 
-        foreach (var item in GlobalsTools.UserListFromDB)
+        foreach (var item in GlobalsTools.UserListFromDB) // lecture de la liste des User de la DB
         {
-            if (Username == item.UserName )
+            if (Username == item.UserName ) // Verification si le USER existe bien
             {
-               
-                if (Password == item.UserPassword)
+                if (Password == item.UserPassword) // Si son mot de passe est le bon
                 {
-
                     try
                     {
-
-                        await Shell.Current.GoToAsync(nameof(DashBoardWindowsPage), true);
+                        await Shell.Current.GoToAsync(nameof(DashBoardWindowsPage), true); // Alors il peux naviguer dans le dashboard 
                         isFind = true;
                     }
                     catch (Exception ex)
                     {
-
                         await Shell.Current.DisplayAlert("Erreur de connexion", ex.Message, "OK");
-                        
                     }
-              
                 }
-             
             }
             break;
         }
@@ -66,15 +53,8 @@ public partial class LoginViewModel : BaseViewModel
             Username = "";
             Password = "";
         }
-
-
-
     }
 
-
-
-
-    [RelayCommand]
     async Task ReadAccess()
     {
         GlobalsTools.UserSet.Tables["Users"].Clear();
@@ -93,8 +73,6 @@ public partial class LoginViewModel : BaseViewModel
     }
 
 
-
-    [RelayCommand]
     async void FillUsers()
     {
         IsBusy = true;
@@ -122,17 +100,14 @@ public partial class LoginViewModel : BaseViewModel
         {
             ShownList.Add(item);
         }
-        GlobalsTools.UserListFromDB = ShownList;
+        GlobalsTools.UserListFromDB = ShownList; //Intégration de notre liste de User dans notre liste global
         IsBusy = false;
 
     }
-
-
 
     [RelayCommand]
     async Task GoToRegisterPage()
 	{
         await Shell.Current.GoToAsync(nameof(RegisterPage));
     }
- 
 }

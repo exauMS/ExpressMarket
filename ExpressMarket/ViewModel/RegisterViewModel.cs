@@ -1,35 +1,93 @@
+namespace ExpressMarket.ViewModel;
 
-using Microsoft.Maui.Controls.PlatformConfiguration;
-
-namespace ExpressMarket.View;
-
-public partial class RegisterViewModel : ObservableObject
+public partial class RegisterViewModel : BaseViewModel
 {
-  /*  [ObservableProperty]
-    string userName;
+    UserManagementServices MyUserServices = new();
+
     [ObservableProperty]
-    string email;
+    String userName;
     [ObservableProperty]
-    string password;
+    Int32 userAccess;
+    [ObservableProperty]
+    String password;
+
+  
+    public ObservableCollection<User> ShownList { get; set; } = new();
+
+
+    public RegisterViewModel(UserManagementServices myUserServices)
+    {
+       this.MyUserServices = myUserServices;
+        MyUserServices.ConfigTools();
+    }
+
+    async Task ReadTables()
+    {
+        GlobalsTools.UserSet.Tables["Users"].Clear();
+        GlobalsTools.UserSet.Tables["Access"].Clear();
+        try
+        {
+           
+            await MyUserServices.ReadUserTable();
+            await MyUserServices.ReadAccessTable();
+     
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+        }
+    }
+
 
     [RelayCommand]
     async Task AddUser()
     {
-       /* User user = new User();
-        user.UserName = UserName;
-        user.Email = Email;
-        user.Password = Password;
-        await UserService.AddUserAsync(user);
-
-        //login page redirection
+        await ReadTables();
+        FillUsers();
+        await MyUserServices.InsertUser(UserName, Password, UserAccess);
+        FillUsers();
         await Shell.Current.GoToAsync(nameof(LoginPage));
     }
 
-    [RelayCommand]
-    async Task GoToLoginPage()
+
+    async void FillUsers()
     {
-        await Shell.Current.GoToAsync("..");
-        
-       // Task Back() => Shell.Current.GoToAsync(nameof(LoginPage));
-    }*/
+        IsBusy = true;
+        List<User> MyUserList = new();
+
+        try
+        {
+
+            MyUserList = GlobalsTools.UserSet.Tables["users"].AsEnumerable().Select(e => new User()
+            {
+                User_ID = e.Field<Int16>("User_ID"),
+                UserName = e.Field<String>("UserName"),
+                UserPassword = e.Field<String>("UserPassword"),
+                UserAccessType = e.Field<Int16>("UserAccessType"),
+            }).ToList();
+
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
+        }
+
+
+        foreach (var item in MyUserList)
+        {
+            ShownList.Add(item);
+        }
+        GlobalsTools.UserListFromDB = ShownList; //Intégration de notre liste de User dans notre liste global
+        IsBusy = false;
+
+    }
+
+
+    [RelayCommand]
+      async Task GoToLoginPage()
+      {
+          await Shell.Current.GoToAsync("..");
+
+         // Task Back() => Shell.Current.GoToAsync(nameof(LoginPage));
+      }
 }

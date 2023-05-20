@@ -83,9 +83,21 @@
             </Border>
         </StackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
-            <Button Text="Update" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" Command="{Binding UpdateCommand}" CommandParameter="{Binding Data}"/>
-            <Button Text="Delete" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="Red" Command="{Binding DeleteCommand}" CommandParameter="{Binding Data}"/>
+        <HorizontalStackLayout HorizontalOptions="Center" 
+                               Spacing="50">
+            <Button Text="Update" 
+                    WidthRequest="100"
+                    CornerRadius="20" 
+                    HorizontalOptions="Center" 
+                    Command="{Binding UpdateCommand}"
+                    CommandParameter="{Binding Data}"/>
+            <Button Text="Delete" 
+                    WidthRequest="100"
+                    CornerRadius="20" 
+                    HorizontalOptions="Center"
+                    BackgroundColor="Red" 
+                    Command="{Binding DeleteCommand}" 
+                    CommandParameter="{Binding Data}"/>
         </HorizontalStackLayout>
         
     </VerticalStackLayout>

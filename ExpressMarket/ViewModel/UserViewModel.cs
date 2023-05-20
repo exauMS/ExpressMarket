@@ -3,7 +3,8 @@ namespace ExpressMarket.ViewModel;
 public partial class UserViewModel : BaseViewModel
 {
 
-     UserManagementServices MyDBServices = new();
+    UserManagementServices MyDBServices = new();
+    public ObservableCollection<User> ShownList { get; set; } = new();
 
     public UserViewModel(UserManagementServices MyDBServices)
 	{
@@ -11,12 +12,7 @@ public partial class UserViewModel : BaseViewModel
 
 		MyDBServices.ConfigTools();
     }
-	public ObservableCollection<User> ShownList { get; set; } = new();
-
-
-
 	
-
     [RelayCommand]
 	async Task ReadAccess()
 	{
@@ -25,8 +21,6 @@ public partial class UserViewModel : BaseViewModel
 		{
 			await MyDBServices.ReadAccessTable();
 			await MyDBServices.ReadUserTable();
-
-		
 		}
 		catch (Exception ex)
 		{

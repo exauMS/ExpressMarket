@@ -8,7 +8,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
         Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-        //Routing.RegisterRoute(nameof(UserPage), typeof(UserPage));
+        Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
 
         if (DeviceInfo.Platform == DevicePlatform.Android)
         {
