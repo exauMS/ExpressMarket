@@ -7,8 +7,6 @@ public partial class RegisterViewModel : BaseViewModel
     [ObservableProperty]
     String userNameRegister;
     [ObservableProperty]
-    Int16 userAccessRegister;
-    [ObservableProperty]
     String passwordRegister;
 
   
@@ -45,7 +43,7 @@ public partial class RegisterViewModel : BaseViewModel
     {
         await ReadTables();
         FillUsers();
-        await MyUserServices.InsertUser(UserNameRegister, PasswordRegister, UserAccessRegister);
+        await MyUserServices.InsertUser(UserNameRegister, PasswordRegister, 2);
         FillUsers();
         await Shell.Current.GoToAsync(nameof(LoginPage));
     }

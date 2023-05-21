@@ -10,20 +10,59 @@ public partial class DashBoardViewModel : ObservableObject
 
 
     [ObservableProperty]
-    Boolean adminAccess;
+    Boolean adminAccess=false;
+    [ObservableProperty]
+    Boolean userAccess = false;
+
+    [ObservableProperty]
+    string userStatus = "";
+
 
     public DashBoardViewModel()
     {
-
+       
     }
     public DashBoardViewModel(ArticleService service)
     {
         articleService = service;
+        RightAdminAccess();
         // CreateUserDataTables MyUserTables = new();
 
         //   GlobalsTools.UserSet.Tables["Users"].Columns["UserName"] = "Data";
     }
 
+    public void RightAdminAccess()
+    {
+
+        if (GlobalsTools.isLogged == true)
+        {
+            if (GlobalsTools.loggedUser.UserAccessType == 1)
+            {
+                AdminAccess = true;
+                UserAccess= true;
+                UserStatus = "Admin : "+GlobalsTools.loggedUser.UserName;
+
+            }
+            else
+            {
+                UserAccess = true;
+                UserStatus = "User : " + GlobalsTools.loggedUser.UserName;
+            }
+        }
+       
+       
+
+
+
+    }
+
+    [RelayCommand]
+    async void Logout()
+    {
+        GlobalsTools.isLogged = false;
+        GlobalsTools.loggedUser = null;
+        await Shell.Current.GoToAsync("..");
+    }
     [RelayCommand]
     async Task GoToDetailsPage()
     {

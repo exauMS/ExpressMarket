@@ -5,7 +5,7 @@
              x:DataType="viewmodel:RegisterViewModel"
              x:Class="ExpressMarket.View.RegisterPage"
           
-             Title="RegisterPage">
+             Title="Register">
 
     <VerticalStackLayout 
             Spacing="25" 
@@ -42,7 +42,7 @@
                        Text="{Binding UserNameRegister}"/>
             </Border>
         </StackLayout>
-        
+
         <StackLayout Orientation="Horizontal">
             <Border ZIndex="1" 
                     HeightRequest="56"
@@ -61,26 +61,7 @@
                        IsPassword="True" 
                        Text="{Binding PasswordRegister}"/>
             </Border>
-            
-        </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Border ZIndex="1"  
-                    HeightRequest="56" 
-                    WidthRequest="56" >
-                <Image Source="user_icon.png" 
-                       HeightRequest="30" 
-                       WidthRequest="30" />
-            </Border>
 
-            <Border HeightRequest="45" 
-                    Margin="-20,0,0,0" 
-                    Padding="0" 
-                    HorizontalOptions="FillAndExpand">
-                <Entry Margin="20,0,0,0" 
-                       VerticalOptions="Center"
-                       Placeholder="User access" 
-                       Text="{Binding UserAccessRegister}"/>
-            </Border>
         </StackLayout>
 
 

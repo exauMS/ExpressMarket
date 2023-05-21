@@ -69,6 +69,7 @@
 	  <None Remove="Resources\Images\edit_pen.png" />
 	  <None Remove="Resources\Images\email_icon.png" />
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\name.png" />
 	  <None Remove="Resources\Images\peach.png" />
 	  <None Remove="Resources\Images\pwd_icon.png" />
@@ -119,13 +120,7 @@
 	  <MauiXaml Update="View\CreateArticleFormPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\DashBoard.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="View\DashBoardWindowsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="View\DetailsFormPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\DetailsFormWindowsPage.xaml">

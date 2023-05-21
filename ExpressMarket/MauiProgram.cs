@@ -17,10 +17,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<RegisterPage>();
-		builder.Services.AddSingleton<DashBoard>();
         builder.Services.AddTransient<DashBoardWindowsPage>();
         builder.Services.AddTransient<DetailsPage>();
-        builder.Services.AddTransient<DetailsFormPage>();
         builder.Services.AddTransient<DetailsFormWindowsPage>();
         builder.Services.AddTransient<ScannerWindowsPage>();
         builder.Services.AddTransient<CreateArticleFormPage>();
@@ -43,7 +41,6 @@ public static class MauiProgram
 
 
         //Services
-        builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<ArticleService>();
         builder.Services.AddTransient<UserManagementServices>();
         builder.Services.AddTransient<DeviceOrientationServices>();

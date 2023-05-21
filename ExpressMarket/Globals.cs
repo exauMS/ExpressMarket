@@ -13,4 +13,6 @@ internal class GlobalsTools
     public static List<Article> articles = new();
     public static DataSet UserSet = new();
     public static ObservableCollection<User> UserListFromDB { get; set; } = new();
+    public static User loggedUser;
+    public static Boolean isLogged=false;
 }

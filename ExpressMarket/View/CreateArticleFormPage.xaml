@@ -4,7 +4,7 @@
              xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
              x:Class="ExpressMarket.View.CreateArticleFormPage"
              x:DataType="viewmodel:CreateArticleFormViewModel"
-             Title="CreateArticleFormPage">
+             Title="Create your article">
     <VerticalStackLayout 
             Spacing="10" 
             Padding="30,0" 

@@ -35,7 +35,10 @@ public partial class LoginViewModel : BaseViewModel
                 {
                     try
                     {
+                        GlobalsTools.loggedUser = item;
+                        GlobalsTools.isLogged = true;
                         await Shell.Current.GoToAsync(nameof(DashBoardWindowsPage), true); // Alors il peux naviguer dans le dashboard 
+                       
                         isFind = true;
                     }
                     catch (Exception ex)

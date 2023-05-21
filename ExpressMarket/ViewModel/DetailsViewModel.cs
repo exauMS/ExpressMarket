@@ -1,6 +1,6 @@
 namespace ExpressMarket.ViewModel;
 
-public partial class DetailsViewModel : ContentPage
+public partial class DetailsViewModel : ObservableObject
 {
 
 
@@ -8,39 +8,34 @@ public partial class DetailsViewModel : ContentPage
     public ObservableCollection<Article> Vegetables { get; set; } = new ObservableCollection<Article>();
     public ObservableCollection<Article> Dairies { get; set; } = new ObservableCollection<Article>();
 
+    [ObservableProperty]
+    Boolean isConnected=false;
+
  
 
     public DetailsViewModel()
 	{
         RefreshList();
+        if (GlobalsTools.isLogged==true)
+        {
+            isConnected = true;
+        }
     }
 
     [RelayCommand]
     async Task GoToDetailsFormPage(Article data)
     {
-        if (DeviceInfo.Platform == DevicePlatform.Android)
-        {
-            await Shell.Current.GoToAsync(nameof(DetailsFormPage), true, new Dictionary<string, object>
-            {
-                {"ArticleFromDetails", data }
-
-            });
-        }  
-        else if (DeviceInfo.Platform == DevicePlatform.WinUI)
-        {
+       
+       
+        
             await Shell.Current.GoToAsync(nameof(DetailsFormWindowsPage), true, new Dictionary<string, object>
             {
                 {"ArticleFromDetails", data }
 
             });
-        }
+        
            
-        else
-            await Shell.Current.GoToAsync(nameof(DetailsFormWindowsPage), true, new Dictionary<string, object>
-            {
-                {"ArticleFromDetails", data }
-
-            });
+      
     }
 
     public void RefreshList()

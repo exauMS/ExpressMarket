@@ -4,7 +4,7 @@
              x:Class="ExpressMarket.View.DetailsFormWindowsPage"
              xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
              x:DataType="viewmodel:DetailsFormViewModel"
-             Title="DetailsFormWindowsPage">
+             Title="Update your article">
 
     <VerticalStackLayout 
             Spacing="25" 

@@ -4,12 +4,12 @@
              xmlns:model="clr-namespace:ExpressMarket.Model"
              xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
              x:Class="ExpressMarket.View.DashBoardWindowsPage"
-             Title="DashBoardWindowsPage"
+             Title="Dashboard"
              x:DataType="viewmodel:DashBoardViewModel">
     <StackLayout>
 
         <HorizontalStackLayout HeightRequest="40">
-            <ImageButton Source="scanner.png" 
+            <ImageButton Source="scanner.png"
                          WidthRequest="130" 
                          HeightRequest="40" 
                          Command="{Binding GoToScannerPageCommand}"/>
@@ -23,9 +23,16 @@
                          Command="{Binding GoToDetailsPageCommand}"/>
             <ImageButton Source="user_icon.png"
                          WidthRequest="100" 
-                         HeightRequest="40" 
+                         HeightRequest="40"
+                         IsVisible="{Binding AdminAccess}"
                          Command="{Binding GoToAdminPageCommand}"/>
-
+            
+            <Label Text="{Binding UserStatus}" FontSize="20" FontAttributes="Bold"/>
+            <ImageButton Source="logout.png"
+                         WidthRequest="100"
+                         HeightRequest="40"
+                         IsVisible="{Binding UserAccess}"
+                         Command="{Binding LogoutCommand}"/>
         </HorizontalStackLayout>
         <Grid RowDefinitions="60,150,60,150,60,150" 
               ColumnDefinitions="*">

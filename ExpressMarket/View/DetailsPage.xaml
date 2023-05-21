@@ -5,7 +5,7 @@
              xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
              x:DataType="viewmodel:DetailsViewModel"
              x:Class="ExpressMarket.View.DetailsPage"
-             Title="DetailsPage">
+             Title="Details">
 
     <StackLayout>
         <Grid RowDefinitions="60,150,60,150,60,150" 
@@ -54,6 +54,7 @@
                                                      WidthRequest="30" 
                                                      HeightRequest="30"
                                                      Grid.Column="2" 
+                                                     IsVisible="{Binding Source={x:Reference Fruits}, Path=BindingContext.IsConnected}"
                                                      Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" 
                                                      CommandParameter="{Binding .}"
                                                     />
@@ -109,7 +110,8 @@
                                     <ImageButton Source="edit_pen.png" 
                                                  WidthRequest="30" 
                                                  HeightRequest="30" 
-                                                 Grid.Column="2" 
+                                                 Grid.Column="2"
+                                                 IsVisible="{Binding Source={x:Reference Fruits}, Path=BindingContext.IsConnected}"
                                                  Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" 
                                                  CommandParameter="{Binding .}"/>
                                 </Grid>
@@ -166,7 +168,8 @@
                                     <ImageButton Source="edit_pen.png" 
                                                  WidthRequest="30" 
                                                  HeightRequest="30" 
-                                                 Grid.Column="2" 
+                                                 Grid.Column="2"
+                                                 IsVisible="{Binding Source={x:Reference Fruits}, Path=BindingContext.IsConnected}"
                                                  Command="{Binding Source={x:Reference Fruits}, Path=BindingContext.GoToDetailsFormPageCommand}" 
                                                  CommandParameter="{Binding .}"/>
                                 </Grid>

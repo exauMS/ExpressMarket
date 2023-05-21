@@ -23,22 +23,21 @@ public partial class DetailsFormViewModel : ObservableObject
     public void RightAccess()
     {
 
-        foreach (var item in GlobalsTools.UserListFromDB)
-        {
-            if (item.UserAccessType == 1)
+       
+            if (GlobalsTools.loggedUser.UserAccessType == 1)
             {
                 RightUpdateAccess = true;
                 RightDestroyAccess = true;
-                break;
+
             }
-            else if (item.UserAccessType == 2)
+            else if (GlobalsTools.loggedUser.UserAccessType == 2)
             {
                 RightDestroyAccess = true;
-                break;
+
             }
-         
+      
             
-        }
+        
     }
 
     [RelayCommand]

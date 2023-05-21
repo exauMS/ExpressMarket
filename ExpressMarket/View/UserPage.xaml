@@ -5,14 +5,11 @@
              xmlns:model="clr-namespace:ExpressMarket.Model"
              xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
              x:DataType="viewmodel:UserViewModel"
-             Title="UserPage">
+             Title="Users">
 
     <ScrollView>
         <VerticalStackLayout x:Name ="UserFromDB">
-            <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillUsersCommand}"
-                IsEnabled="{Binding IsNotBusy}" Grid.Row="0"/>
-
-
+            <Label Text="List of users" FontSize="30" FontAttributes="Bold"/>
             <CollectionView ItemsSource="{Binding ShownList}" SelectionMode="None" Background="white" x:Name="UserInfo">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:User">
