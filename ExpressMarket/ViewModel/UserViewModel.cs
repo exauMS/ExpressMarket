@@ -44,7 +44,7 @@ public partial class UserViewModel : BaseViewModel
     }
 
     [RelayCommand]
-	async void FillUsers()
+	public async void FillUsers()
 	{
         GlobalsTools.UserSet.Tables["Users"].Clear();
         GlobalsTools.UserSet.Tables["Access"].Clear();

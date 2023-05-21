@@ -6,33 +6,37 @@
              xmlns:viewmodel="clr-namespace:ExpressMarket.ViewModel"
              x:DataType="viewmodel:UserViewModel"
              Title="UserPage">
-    <VerticalStackLayout x:Name ="UserFromDB">
-        <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillUsersCommand}"
-                IsEnabled="{Binding IsNotBusy}"/>
 
-        <CollectionView ItemsSource="{Binding ShownList}" SelectionMode="None" Background="white" Grid.Row="3" x:Name="UserInfo">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:User">
-                    <Grid Padding="10" ColumnSpacing="20" RowDefinitions="*" HeightRequest="125">
-                        <Border Grid.Column="8" Grid.ColumnSpan="3"
+    <ScrollView>
+        <VerticalStackLayout x:Name ="UserFromDB">
+            <Button Text="Fill from DB" Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.FillUsersCommand}"
+                IsEnabled="{Binding IsNotBusy}" Grid.Row="0"/>
+
+
+            <CollectionView ItemsSource="{Binding ShownList}" SelectionMode="None" Background="white" x:Name="UserInfo">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:User">
+                        <Grid Padding="10" ColumnSpacing="20" RowDefinitions="*">
+                            <Border Grid.Column="8" Grid.ColumnSpan="3"
                                     StrokeThickness="4"
                                     StrokeShape="RoundRectangle 10,10,10,10">
-                            <Border.GestureRecognizers>
+                                <Border.GestureRecognizers>
 
-                                <TapGestureRecognizer CommandParameter ="{Binding .}"
+                                    <TapGestureRecognizer CommandParameter ="{Binding .}"
                                                        Command="{Binding Source={x:Reference UserFromDB}, Path=BindingContext.GoToUpdateUserPageCommand}"/>
-                            </Border.GestureRecognizers>
-                            <HorizontalStackLayout BackgroundColor="white">
-                                <Label Text="{Binding User_ID}"  />
-                                <Label Text="{Binding UserName}" />
-                                <Label Text="{Binding UserPassword}" />
-                                <Label Text="{Binding UserAccessType}" />
-                            </HorizontalStackLayout>
-                        </Border>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                                </Border.GestureRecognizers>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding User_ID}" FontSize="20" FontAttributes="Italic" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding UserName}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding UserPassword}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding UserAccessType}" FontSize="20" FontAttributes="Italic" HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

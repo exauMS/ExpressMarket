@@ -4,25 +4,56 @@ namespace ExpressMarket.ViewModel;
 public partial class UpdateUserViewModel : BaseViewModel
 {
 
-    UserManagementServices MyUserServices = new();
+    UserManagementServices MyUserServices;
     public ObservableCollection<User> ShownList { get; set; } = new();
 
 
     [ObservableProperty]
     User user;
-
-    public UpdateUserViewModel(UserManagementServices MyUserServices)
+    [ObservableProperty]
+    bool canDelete;
+    public UpdateUserViewModel()
     {
-        this.MyUserServices = MyUserServices;
+        this.MyUserServices = new();
         MyUserServices.ConfigTools();
+        canDelete= true;
     }
 
     [RelayCommand]
     async Task ModifyUser()
     {
         IsBusy = false;
-       
-        await MyUserServices.UpdateUser(User.UserName, User.UserPassword, User.UserAccessType);
+
+        //windows only
+        try
+        {
+            await MyUserServices.UpdateUser(User.User_ID, User.UserName, User.UserPassword, User.UserAccessType);
+            await Shell.Current.DisplayAlert("User updated!", "You can go back.", "OK");
+        }
+        catch(Exception ex)
+        {
+            await Shell.Current.DisplayAlert("User not updated!", ex.Message, "OK");
+        }
+
+        await FillUsers();
+        IsBusy = true;
+
+    }
+
+    [RelayCommand]
+    async Task DeleteUser()
+    {
+        try
+        {
+            IsBusy = false;
+            await MyUserServices.DeleteUser(User.UserName);
+            await Shell.Current.DisplayAlert("User updated!", "You can go back.", "OK");
+            
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("User not Deleted!", ex.Message, "OK");
+        }
 
         await FillUsers();
         IsBusy = true;

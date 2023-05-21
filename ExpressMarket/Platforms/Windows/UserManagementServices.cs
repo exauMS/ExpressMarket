@@ -21,7 +21,7 @@ public partial class UserManagementServices
         string Insert_CommandText = "INSERT INTO DB_Users (UserName,UserPassword,UserAccessType) VALUES (@UserName,@UserPassword,@UserAccessType);";
         string Delete_CommandText = "DELETE FROM DB_Users WHERE UserName = @UserName;";
         string Select_CommandText = "SELECT * FROM DB_Users ORDER BY User_ID;";
-        string Update_CommandText = "UPDATE DB_Users SET UserName = @UserName, UserPassword = @UserPassword, UserAccessType = @UserAccessType WHERE UserName=@UserName;";
+        string Update_CommandText = "UPDATE DB_Users SET UserName = @UserName, UserPassword = @UserPassword, UserAccessType = @UserAccessType WHERE User_ID = @User_ID;";
 
 
         //3 Insertion des CommandText dans les commandes de OleDB
@@ -48,6 +48,8 @@ public partial class UserManagementServices
         UsersAdapter.UpdateCommand.Parameters.Add("@UserName", OleDbType.VarChar, 40, "UserName");
         UsersAdapter.UpdateCommand.Parameters.Add("@UserPassword", OleDbType.VarChar, 40, "UserPassword");
         UsersAdapter.UpdateCommand.Parameters.Add("@UserAccessType", OleDbType.Numeric, 100, "UserAccessType");
+        UsersAdapter.UpdateCommand.Parameters.Add("@User_ID", OleDbType.Numeric, 100, "User_ID");
+
     }
     public async Task ReadAccessTable()
     {
@@ -163,7 +165,7 @@ public partial class UserManagementServices
             UsersAdapter.DeleteCommand.Parameters[0].Value = name;
        
             if (UsersAdapter.DeleteCommand.ExecuteNonQuery() != 0) await Shell.Current.DisplayAlert("Database", "User successfully deleted", "OK");
-            else await Shell.Current.DisplayAlert("Database", "Use not deleted", "OK");
+            else await Shell.Current.DisplayAlert("Database", "User not deleted", "OK");
 
         }
         catch (Exception ex)
@@ -176,30 +178,21 @@ public partial class UserManagementServices
         }
     }
 
-    public async Task UpdateUser(string name, string password, Int16 access)
+    internal async Task UpdateUser(Int32 user_id, string name, string password, Int32 access)
     {
+        UsersAdapter.UpdateCommand.Parameters[0].Value = name;
+        UsersAdapter.UpdateCommand.Parameters[1].Value = password;
+        UsersAdapter.UpdateCommand.Parameters[2].Value = access;
+        UsersAdapter.UpdateCommand.Parameters[3].Value = user_id;
         try
         {
             Connexion.Open();
 
-            /*  UsersAdapter.UpdateCommand.Parameters[0].Value = name;
-              UsersAdapter.UpdateCommand.Parameters[1].Value = password;
-              UsersAdapter.UpdateCommand.Parameters[2].Value = access;*/
-            UsersAdapter.Update(GlobalsTools.UserSet.Tables["Users"]);
-
-        
-           if (UsersAdapter.UpdateCommand.ExecuteNonQuery() != 0) { 
-                await Shell.Current.DisplayAlert("Database", "User successfully updated", "OK"); 
-            }
-            else {
-                await Shell.Current.DisplayAlert("Database", "Use not updated", "OK");
-                
-            }
+            UsersAdapter.UpdateCommand.ExecuteNonQuery();
         }
-        catch (DbException ex)
+        catch (Exception ex)
         {
-
-            await Shell.Current.DisplayAlert("Database",ex.Message , "OK");
+            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
         }
         finally
         {
