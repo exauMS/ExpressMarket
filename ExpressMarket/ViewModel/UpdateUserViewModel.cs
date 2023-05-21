@@ -47,7 +47,6 @@ public partial class UpdateUserViewModel : BaseViewModel
         {
             IsBusy = false;
             await MyUserServices.DeleteUser(User.UserName);
-            await Shell.Current.DisplayAlert("User updated!", "You can go back.", "OK");
             
         }
         catch (Exception ex)
