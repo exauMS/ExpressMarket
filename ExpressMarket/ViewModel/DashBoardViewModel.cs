@@ -26,9 +26,6 @@ public partial class DashBoardViewModel : ObservableObject
     {
         articleService = service;
         RightAdminAccess();
-        // CreateUserDataTables MyUserTables = new();
-
-        //   GlobalsTools.UserSet.Tables["Users"].Columns["UserName"] = "Data";
     }
 
     public void RightAdminAccess()

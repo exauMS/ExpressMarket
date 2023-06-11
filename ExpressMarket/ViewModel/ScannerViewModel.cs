@@ -31,7 +31,7 @@ public partial class ScannerViewModel : ObservableObject
     private  void SerialBuffer_Changed(object sender, EventArgs e)
     {
         QueueBuffer queue = new QueueBuffer();
-       // DeviceOrientationServices.QueueBuffer queue = (DeviceOrientationServices.QueueBuffer)sender;
+      
         CodeFromScan = queue.Dequeue().ToString();
 
         foreach(var data in GlobalsTools.articles)

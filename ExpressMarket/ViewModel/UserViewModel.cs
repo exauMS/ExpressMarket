@@ -15,21 +15,6 @@ public partial class UserViewModel : BaseViewModel
 
 		MyDBServices.ConfigTools();
     }
-    /*[RelayCommand]
-    async Task ReadAccess()
-    {
-        GlobalsTools.UserSet.Tables["Users"].Clear();
-        GlobalsTools.UserSet.Tables["Access"].Clear();
-        try
-        {
-            await MyDBServices.ReadAccessTable();
-            await MyDBServices.ReadUserTable();
-        }
-        catch (Exception ex)
-        {
-            await Shell.Current.DisplayAlert("Database", ex.Message, "OK");
-        }
-    }*/
 
     [RelayCommand]
     async Task GoToUpdateUserPage(User user)

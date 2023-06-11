@@ -45,7 +45,7 @@ public partial class RegisterViewModel : BaseViewModel
         FillUsers();
         await MyUserServices.InsertUser(UserNameRegister, PasswordRegister, 2);
         FillUsers();
-        await Shell.Current.GoToAsync(nameof(LoginPage));
+        await Shell.Current.GoToAsync("..");
     }
 
 
@@ -87,6 +87,5 @@ public partial class RegisterViewModel : BaseViewModel
       {
           await Shell.Current.GoToAsync("..");
 
-         // Task Back() => Shell.Current.GoToAsync(nameof(LoginPage));
       }
 }
