@@ -85,7 +85,7 @@ public partial class UserManagementServices
         OleDbCommand SelectCommand = new OleDbCommand("SELECT * FROM DB_Users ORDER BY User_ID;", Connexion);
         try
         {
-            //GlobalsTools.UserSet.Tables["Users"].Clear();
+            
             Connexion.Open();
             OleDbDataReader Reader = SelectCommand.ExecuteReader();
             if (Reader.HasRows)
